@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit packageName="OpenEdge.Core.ServerConnection" className="ODBCConnectionParameters" inherits="ConnectionParameters" isAbstract="false" isFinal="false" isInterface="false">
+    <classComment>/* ****&#xD;
+Copyright 2013 Progress Software Corporation&#xD;
+&#xD;
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);&#xD;
+you may not use this file except in compliance with the License.&#xD;
+You may obtain a copy of the License at&#xD;
+&#xD;
+  http://www.apache.org/licenses/LICENSE-2.0&#xD;
+&#xD;
+Unless required by applicable law or agreed to in writing, software&#xD;
+distributed under the License is distributed on an &quot;AS IS&quot; BASIS,&#xD;
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#xD;
+See the License for the specific language governing permissions and&#xD;
+limitations under the License.&#xD;
+**** */</classComment>
+    <classComment>/*------------------------------------------------------------------------&#xD;
+    File        : ODBCConnectionParameters&#xD;
+    Purpose     : &#xD;
+    Syntax      : &#xD;
+    Description : &#xD;
+    Author(s)   : pjudge&#xD;
+    Created     : Tue Jul 02 13:02:40 EDT 2013&#xD;
+    Notes       : &#xD;
+  ----------------------------------------------------------------------*/</classComment>
+    <constructor signature="ODBCConnectionParameters(INPUT:character)" modifier="PUBLIC">
+        <parameter name="pcOptions" dataType="CHARACTER" position="0" mode="INPUT"/>
+    </constructor>
+    <constructor signature="ODBCConnectionParameters(INPUT:JsonObject)" modifier="PUBLIC">
+        <parameter name="poOptions" dataType="JsonObject" position="1" mode="INPUT"/>
+    </constructor>
+    <method methodName="Initialise" signature="Initialise()" modifier="PROTECTED" isStatic="false" isFinal="false" isAbstract="false"/>
+    <method methodName="GetConnectionString" returnType="CHARACTER" signature="GetConnectionString():CHARACTER" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false"/>
+    <property name="DataSourceName" dataType="CHARACTER" isAbstract="false" isStatic="false" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="UserName" dataType="CHARACTER" isAbstract="false" isStatic="false" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="Password" dataType="CHARACTER" isAbstract="false" isStatic="false" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SupportsDriverConnect" dataType="LOGICAL" isAbstract="false" isStatic="false" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE">
+        <propertyComment>/** Returns true if the connection parameters include more options than just&#xD;
+        the DataSourceName, UserName,Password. */</propertyComment>
+    </property>
+    <using name="OpenEdge.Core.ServerConnection.ConnectionParameters" type="NONE"/>
+    <using name="OpenEdge.Core.ServerConnection.FormatMaskEnum" type="NONE"/>
+    <using name="Progress.Json.ObjectModel.JsonObject" type="NONE"/>
+</unit>

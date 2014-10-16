@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<IUE id="D2C_ABL_API" sortid="OEBP-D2C-001"
+	xmlns="http://www.jaxb.iue.branding.tools.progress.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<name>OpenEdge ODBC ABL Sample</name>
+	<category>sample</category>
+	<publicationDate>2014-10-15</publicationDate>
+	<shortDescription>This sample provides ABL code for querying Cloud data sources available via the DataDirect Cloud Server</shortDescription>
+	<description>DataDirect Cloud (www.datadirectcloud.com) provides standardised access to a number of cloud data providers like Salesforce.com, Microsoft Dynamics and others. This sample provides a simple ABL API for querying those data sources; the results of the  query are returned as either a temp-table or as JSON text.     
+	   
+		README.md in the root folder in the new project contains instructions for setting up and running this sample.
+	</description>
+	<metadata>
+		<contributionType id="com.progress.tools.branding.iue.type.sample">
+			<!-- Contains the zipped Eclipse project. Relative path to the location of this XML file. Make sure it's also in the download node -->
+			<properties key="samplePath">
+				<simpleValue>abl_odbc.zip</simpleValue>
+			</properties>
+			<!-- Opens the OE Editor perspective. Seems about right for an ABL sample -->
+			<properties key="perspectiveID">
+				<simpleValue>com.openedge.pdt.text.ProgressPerspective</simpleValue>
+			</properties>
+			<!-- Open the readme so the user can get started -->
+			<properties key="defaultopenfile">
+				<simpleValue>/ODBC_ABL_API/README.md</simpleValue>
+			</properties>
+		</contributionType>
+		<filters>
+			<topic>OpenEdge</topic>
+			<complexity>Getting Started</complexity>
+			<productsSupported>
+				<product id="com.openedge.pdt.core" version="[11.4.0, 13.0.0]">
+					<capability>OpenEdge</capability>
+				</product>
+			</productsSupported>
+		</filters>
+	</metadata>
+	<download>
+		<downloadFile>abl_odbc.zip</downloadFile>
+	</download>
+</IUE>

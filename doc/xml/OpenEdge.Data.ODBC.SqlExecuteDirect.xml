@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit packageName="OpenEdge.Data.ODBC" className="SqlExecuteDirect" inherits="SqlStatement" isAbstract="false" isFinal="false" isInterface="false">
+    <classComment>/* ****&#xD;
+Copyright 2013 Progress Software Corporation&#xD;
+&#xD;
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);&#xD;
+you may not use this file except in compliance with the License.&#xD;
+You may obtain a copy of the License at&#xD;
+&#xD;
+  http://www.apache.org/licenses/LICENSE-2.0&#xD;
+&#xD;
+Unless required by applicable law or agreed to in writing, software&#xD;
+distributed under the License is distributed on an &quot;AS IS&quot; BASIS,&#xD;
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#xD;
+See the License for the specific language governing permissions and&#xD;
+limitations under the License.&#xD;
+**** */</classComment>
+    <classComment>/*------------------------------------------------------------------------&#xD;
+    File        : SqlExecuteDirect&#xD;
+    Purpose     : &#xD;
+    Syntax      : &#xD;
+    Description : &#xD;
+    Author(s)   : pjudge&#xD;
+    Created     : Wed Jul 24 15:32:55 EDT 2013&#xD;
+    Notes       : &#xD;
+  ----------------------------------------------------------------------*/</classComment>
+    <constructor signature="SqlExecuteDirect(INPUT:int64,INPUT:ODBCConnection)" modifier="PUBLIC">
+        <constrComment>/** TEMPLATE &#xD;
+/* Doc at */&#xD;
+procedure  external &quot;{&amp;ODBC-DLL}&quot; persistent.&#xD;
+    define input        parameter StatementHandle   as long.        /* [Input] SQLHSTMT:SQLHANDLE */&#xD;
+    define return       parameter returnValue       as short.       /* [Return] SQLRETURN */&#xD;
+end procedure.&#xD;
+**/</constrComment>
+        <parameter name="piStmt" dataType="INT64" position="63" mode="INPUT"/>
+        <parameter name="poConnection" dataType="ODBCConnection" position="64" mode="INPUT"/>
+    </constructor>
+    <method methodName="Execute" signature="Execute(INPUT:character,OUTPUT:JsonObject)" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false">
+        <parameter name="pcStatement" dataType="CHARACTER" position="65" mode="INPUT"/>
+        <parameter name="poResultSet" dataType="JsonObject" position="66" mode="OUTPUT"/>
+    </method>
+    <method methodName="Execute" signature="Execute(INPUT:character,OUTPUT:table-handle)" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false">
+        <parameter name="pcStatement" dataType="CHARACTER" position="67" mode="INPUT"/>
+        <parameter name="phResultSet" dataType="TABLE-HANDLE" position="68" mode="OUTPUT"/>
+    </method>
+    <method methodName="Execute" signature="Execute(INPUT:character,INPUT:handle)" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false">
+        <parameter name="pcStatement" dataType="CHARACTER" position="69" mode="INPUT"/>
+        <parameter name="phResultSet" dataType="HANDLE" position="70" mode="INPUT"/>
+    </method>
+    <using name="OpenEdge.Core.ServerConnection.ODBCConnection" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.SqlStatement" type="NONE"/>
+    <using name="Progress.Json.ObjectModel.JsonArray" type="NONE"/>
+    <using name="Progress.Json.ObjectModel.JsonObject" type="NONE"/>
+</unit>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit packageName="OpenEdge.Data.ODBC" className="SqlGetColumns" inherits="SqlStatement" isAbstract="false" isFinal="false" isInterface="false">
+    <classComment>/* ****&#xD;
+Copyright 2013 Progress Software Corporation&#xD;
+&#xD;
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);&#xD;
+you may not use this file except in compliance with the License.&#xD;
+You may obtain a copy of the License at&#xD;
+&#xD;
+  http://www.apache.org/licenses/LICENSE-2.0&#xD;
+&#xD;
+Unless required by applicable law or agreed to in writing, software&#xD;
+distributed under the License is distributed on an &quot;AS IS&quot; BASIS,&#xD;
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#xD;
+See the License for the specific language governing permissions and&#xD;
+limitations under the License.&#xD;
+**** */</classComment>
+    <classComment>/*------------------------------------------------------------------------&#xD;
+    File        : SqlGetColumns&#xD;
+    Purpose     : &#xD;
+    Syntax      : &#xD;
+    Description : &#xD;
+    Author(s)   : pjudge&#xD;
+    Created     : Wed Jul 24 15:20:38 EDT 2013&#xD;
+    Notes       : &#xD;
+  ----------------------------------------------------------------------*/</classComment>
+    <constructor signature="SqlGetColumns()" modifier="STATIC">
+        <constrComment>/** TEMPLATE &#xD;
+/* Doc at */&#xD;
+procedure  external &quot;{&amp;ODBC-DLL}&quot; persistent.&#xD;
+    define input        parameter StatementHandle   as long.        /* [Input] SQLHSTMT:SQLHANDLE */&#xD;
+    define return       parameter returnValue       as short.       /* [Return] SQLRETURN */&#xD;
+end procedure.&#xD;
+**/</constrComment>
+    </constructor>
+    <constructor signature="SqlGetColumns(INPUT:int64,INPUT:ODBCConnection)" modifier="PUBLIC">
+        <parameter name="piStmt" dataType="INT64" position="63" mode="INPUT"/>
+        <parameter name="poConnection" dataType="ODBCConnection" position="64" mode="INPUT"/>
+    </constructor>
+    <method methodName="GetColumns" returnType="JsonArray" signature="GetColumns(INPUT:character):JsonArray" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false">
+        <parameter name="pcTableName" dataType="CHARACTER" position="65" mode="INPUT"/>
+    </method>
+    <method methodName="GetColumns" returnType="JsonArray" signature="GetColumns(INPUT:character,INPUT:character,INPUT:character):JsonArray" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false">
+        <comment>/** Returns column metadata/schema &#xD;
+        &#xD;
+        @param character The catalog for selection&#xD;
+        @param character The schema for selection&#xD;
+        @param character The table for selection&#xD;
+        @return JsonArray An array of column schema data */</comment>
+        <parameter name="pcCatalogName" dataType="CHARACTER" position="66" mode="INPUT"/>
+        <parameter name="pcSchemaName" dataType="CHARACTER" position="67" mode="INPUT"/>
+        <parameter name="pcTableName" dataType="CHARACTER" position="68" mode="INPUT"/>
+    </method>
+    <using name="OpenEdge.Core.ServerConnection.ODBCConnection" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.CTypeEnum" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.SqlStatement" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.SqlGetColumns" type="NONE"/>
+    <using name="Progress.Json.ObjectModel.JsonArray" type="NONE"/>
+</unit>

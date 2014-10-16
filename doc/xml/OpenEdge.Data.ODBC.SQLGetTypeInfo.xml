@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit packageName="OpenEdge.Data.ODBC" className="SQLGetTypeInfo" inherits="SqlStatement" isAbstract="false" isFinal="false" isInterface="false">
+    <classComment>/* ****&#xD;
+Copyright 2013 Progress Software Corporation&#xD;
+&#xD;
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);&#xD;
+you may not use this file except in compliance with the License.&#xD;
+You may obtain a copy of the License at&#xD;
+&#xD;
+  http://www.apache.org/licenses/LICENSE-2.0&#xD;
+&#xD;
+Unless required by applicable law or agreed to in writing, software&#xD;
+distributed under the License is distributed on an &quot;AS IS&quot; BASIS,&#xD;
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#xD;
+See the License for the specific language governing permissions and&#xD;
+limitations under the License.&#xD;
+**** */</classComment>
+    <classComment>/*------------------------------------------------------------------------&#xD;
+    File        : SQLGetTypeInfo&#xD;
+    Purpose     : &#xD;
+    Syntax      : &#xD;
+    Description : &#xD;
+    Author(s)   : pjudge&#xD;
+    Created     : Thu Jul 25 13:42:09 EDT 2013&#xD;
+    Notes       : &#xD;
+  ----------------------------------------------------------------------*/</classComment>
+    <constructor signature="SQLGetTypeInfo()" modifier="STATIC">
+        <constrComment>/** TEMPLATE &#xD;
+/* Doc at */&#xD;
+procedure  external &quot;{&amp;ODBC-DLL}&quot; persistent.&#xD;
+    define input        parameter StatementHandle   as long.        /* [Input] SQLHSTMT:SQLHANDLE */&#xD;
+    define return       parameter returnValue       as short.       /* [Return] SQLRETURN */&#xD;
+end procedure.&#xD;
+**/</constrComment>
+    </constructor>
+    <constructor signature="SQLGetTypeInfo(INPUT:int64,INPUT:OpenEdge.Core.ServerConnection.ODBCConnection)" modifier="PUBLIC">
+        <parameter name="piStmt" dataType="INT64" position="63" mode="INPUT"/>
+        <parameter name="poConnection" dataType="OpenEdge.Core.ServerConnection.ODBCConnection" position="64" mode="INPUT"/>
+    </constructor>
+    <method methodName="CacheTypeInfo" signature="CacheTypeInfo()" modifier="PRIVATE" isStatic="false" isFinal="false" isAbstract="false">
+        <comment>/** Caches the driver's type info. Cannot be done statically since we need&#xD;
+            a statement handle; we also want to use the SqlStatement (inherited) code&#xD;
+            for this. */</comment>
+    </method>
+    <method methodName="GetTypeInfo" returnType="JsonArray" signature="GetTypeInfo(INPUT:SqlTypeEnum):JsonArray" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false">
+        <parameter name="poSqlType" dataType="SqlTypeEnum" position="65" mode="INPUT"/>
+    </method>
+    <method methodName="GetTypeInfo" returnType="JsonArray" signature="GetTypeInfo():JsonArray" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false"/>
+    <using name="OpenEdge.Data.ODBC.RowReadEventArgs" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.FieldReadEventArgs" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.CTypeEnum" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.SqlTypeEnum" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.SqlHandleTypeEnum" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.SQLGetTypeInfo" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.SqlStatement" type="NONE"/>
+    <using name="OpenEdge.Core.WidgetHandle" type="NONE"/>
+    <using name="Progress.Json.ObjectModel.JsonObject" type="NONE"/>
+    <using name="Progress.Json.ObjectModel.JsonArray" type="NONE"/>
+    <using name="Progress.Lang.Object" type="NONE"/>
+</unit>

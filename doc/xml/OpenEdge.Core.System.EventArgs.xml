@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit packageName="OpenEdge.Core.System" className="EventArgs" isAbstract="false" isFinal="false" isInterface="false">
+    <classComment>/* ****&#xD;
+Copyright 2013 Progress Software Corporation&#xD;
+&#xD;
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);&#xD;
+you may not use this file except in compliance with the License.&#xD;
+You may obtain a copy of the License at&#xD;
+&#xD;
+  http://www.apache.org/licenses/LICENSE-2.0&#xD;
+&#xD;
+Unless required by applicable law or agreed to in writing, software&#xD;
+distributed under the License is distributed on an &quot;AS IS&quot; BASIS,&#xD;
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#xD;
+See the License for the specific language governing permissions and&#xD;
+limitations under the License.&#xD;
+**** */</classComment>
+    <classComment>/* ------------------------------------------------------------------------&#xD;
+    File        : EventArgs&#xD;
+    Purpose     : Generic event arguments class, including static 'Empty'&#xD;
+                  option. &#xD;
+    Syntax      : &#xD;
+    Description : &#xD;
+    @author pjudge&#xD;
+    Created     : Mon Jul 27 11:45:09 EDT 2009&#xD;
+    Notes       : * This class based on the AutoEdge|TheFactory version &#xD;
+                  * Using EventArgs allows us to extend arguments without&#xD;
+                    changing event signatures.&#xD;
+                  * this class is likely to be specialised, but there's no &#xD;
+                    requirement for that to happen. although outside of &#xD;
+                    'empty' this is a somewhat useless class :)&#xD;
+  ---------------------------------------------------------------------- */</classComment>
+    <constructor signature="EventArgs()" modifier="PUBLIC"/>
+    <property name="Empty" dataType="EventArgs" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE">
+        <propertyComment>/** A single instance of this class so that we don't have&#xD;
+        to pass nulls around (ie we can depend on there always being&#xD;
+        a value if we so desire).   */</propertyComment>
+    </property>
+    <using name="OpenEdge.Core.System.EventArgs" type="NONE"/>
+</unit>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit packageName="OpenEdge.Data.ODBC" className="ODBCError" inherits="AppError" isAbstract="false" isFinal="false" isInterface="false">
+    <classComment>/* ****&#xD;
+Copyright 2013 Progress Software Corporation&#xD;
+&#xD;
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);&#xD;
+you may not use this file except in compliance with the License.&#xD;
+You may obtain a copy of the License at&#xD;
+&#xD;
+  http://www.apache.org/licenses/LICENSE-2.0&#xD;
+&#xD;
+Unless required by applicable law or agreed to in writing, software&#xD;
+distributed under the License is distributed on an &quot;AS IS&quot; BASIS,&#xD;
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#xD;
+See the License for the specific language governing permissions and&#xD;
+limitations under the License.&#xD;
+**** */</classComment>
+    <classComment>/**&#xD;
+Copyright 2013 Progress Software Corporation&#xD;
+&#xD;
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);&#xD;
+you may not use this file except in compliance with the License.&#xD;
+You may obtain a copy of the License at&#xD;
+&#xD;
+  http://www.apache.org/licenses/LICENSE-2.0&#xD;
+&#xD;
+Unless required by applicable law or agreed to in writing, software&#xD;
+distributed under the License is distributed on an &quot;AS IS&quot; BASIS,&#xD;
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#xD;
+See the License for the specific language governing permissions and&#xD;
+limitations under the License.&#xD;
+**/</classComment>
+    <classComment>/*------------------------------------------------------------------------&#xD;
+    File        : ODBCError&#xD;
+    Purpose     : Errors that are raised as a result of RUN SQL* calls. other error will return as AppError.&#xD;
+    Syntax      : &#xD;
+    Description : &#xD;
+    Author(s)   : pjudge&#xD;
+    Created     : Tue Jul 30 09:30:02 EDT 2013&#xD;
+    Notes       : &#xD;
+  ----------------------------------------------------------------------*/</classComment>
+    <constructor signature="ODBCError(INPUT:character)" modifier="PUBLIC">
+        <parameter name="p0" dataType="CHARACTER" position="0" mode="INPUT"/>
+    </constructor>
+    <constructor signature="ODBCError(INPUT:character,INPUT:integer)" modifier="PUBLIC">
+        <parameter name="p0" dataType="CHARACTER" position="1" mode="INPUT"/>
+        <parameter name="p1" dataType="INTEGER" position="2" mode="INPUT"/>
+    </constructor>
+    <constructor signature="ODBCError()" modifier="PUBLIC"/>
+    <using name="Progress.Lang.AppError" type="NONE"/>
+</unit>

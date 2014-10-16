@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit packageName="OpenEdge.Data.ODBC" className="RowReadEventArgs" inherits="EventArgs" isAbstract="false" isFinal="false" isInterface="false">
+    <classComment>/* ****&#xD;
+Copyright 2013 Progress Software Corporation&#xD;
+&#xD;
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);&#xD;
+you may not use this file except in compliance with the License.&#xD;
+You may obtain a copy of the License at&#xD;
+&#xD;
+  http://www.apache.org/licenses/LICENSE-2.0&#xD;
+&#xD;
+Unless required by applicable law or agreed to in writing, software&#xD;
+distributed under the License is distributed on an &quot;AS IS&quot; BASIS,&#xD;
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#xD;
+See the License for the specific language governing permissions and&#xD;
+limitations under the License.&#xD;
+**** */</classComment>
+    <classComment>/*------------------------------------------------------------------------&#xD;
+    File        : RowReadEventArgs&#xD;
+    Purpose     : Event args for Row&#xD;
+    Syntax      : &#xD;
+    Description : &#xD;
+    Author(s)   : pjudge&#xD;
+    Created     : Mon Jul 15 13:48:03 EDT 2013&#xD;
+    Notes       : &#xD;
+  ----------------------------------------------------------------------*/</classComment>
+    <constructor signature="RowReadEventArgs()" modifier="PUBLIC"/>
+    <constructor signature="RowReadEventArgs(INPUT:character,INPUT:Object)" modifier="PUBLIC">
+        <parameter name="pcTargetType" dataType="CHARACTER" position="0" mode="INPUT"/>
+        <parameter name="poTargetReference" dataType="Object" position="1" mode="INPUT"/>
+    </constructor>
+    <property name="TargetType" dataType="CHARACTER" isAbstract="false" isStatic="false" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PUBLIC">
+        <propertyComment>/* JSON or Table, and associated reference */</propertyComment>
+    </property>
+    <property name="TargetReference" dataType="Object" isAbstract="false" isStatic="false" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PUBLIC"/>
+    <property name="RowReference" dataType="Object" isAbstract="false" isStatic="false" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PUBLIC"/>
+    <using name="OpenEdge.Core.System.EventArgs" type="NONE"/>
+    <using name="Progress.Lang.Object" type="NONE"/>
+</unit>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit packageName="OpenEdge.Data.ODBC" className="SqlGetTables" inherits="SqlStatement" isAbstract="false" isFinal="false" isInterface="false">
+    <classComment>/* ****&#xD;
+Copyright 2013 Progress Software Corporation&#xD;
+&#xD;
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);&#xD;
+you may not use this file except in compliance with the License.&#xD;
+You may obtain a copy of the License at&#xD;
+&#xD;
+  http://www.apache.org/licenses/LICENSE-2.0&#xD;
+&#xD;
+Unless required by applicable law or agreed to in writing, software&#xD;
+distributed under the License is distributed on an &quot;AS IS&quot; BASIS,&#xD;
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#xD;
+See the License for the specific language governing permissions and&#xD;
+limitations under the License.&#xD;
+**** */</classComment>
+    <classComment>/*------------------------------------------------------------------------&#xD;
+    File        : SqlGetTables&#xD;
+    Purpose     : &#xD;
+    Syntax      : &#xD;
+    Description : &#xD;
+    Author(s)   : pjudge&#xD;
+    Created     : Wed Jul 24 13:45:14 EDT 2013&#xD;
+    Notes       : &#xD;
+  ----------------------------------------------------------------------*/</classComment>
+    <constructor signature="SqlGetTables()" modifier="STATIC">
+        <constrComment>/** TEMPLATE &#xD;
+/* Doc at */&#xD;
+procedure  external &quot;{&amp;ODBC-DLL}&quot; persistent.&#xD;
+    define input        parameter StatementHandle   as long.        /* [Input] SQLHSTMT:SQLHANDLE */&#xD;
+    define return       parameter returnValue       as short.       /* [Return] SQLRETURN */&#xD;
+end procedure.&#xD;
+**/</constrComment>
+    </constructor>
+    <constructor signature="SqlGetTables(INPUT:int64,INPUT:ODBCConnection)" modifier="PUBLIC">
+        <parameter name="piStmt" dataType="INT64" position="63" mode="INPUT"/>
+        <parameter name="poConnection" dataType="ODBCConnection" position="64" mode="INPUT"/>
+    </constructor>
+    <method methodName="GetTables" returnType="JsonObject" signature="GetTables():JsonObject" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false">
+        <comment>/** Retrieves table schema information.&#xD;
+                &#xD;
+        @return JsonObject A json object containing the schema  */</comment>
+    </method>
+    <method methodName="GetSingleTable" returnType="JsonObject" signature="GetSingleTable(INPUT:character,INPUT:character):JsonObject" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false">
+        <comment>/** Retrieves table schema information for a single table.&#xD;
+                &#xD;
+        @param character The table name. &#xD;
+        @param character The type of additional schema to return. 'Column' for example. &#xD;
+        @return JsonObject A json object containing the schema  */</comment>
+        <parameter name="pcTableName" dataType="CHARACTER" position="65" mode="INPUT"/>
+        <parameter name="pcChildTypes" dataType="CHARACTER" position="66" mode="INPUT"/>
+    </method>
+    <method methodName="GetTables" returnType="JsonObject" signature="GetTables(INPUT:character):JsonObject" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false">
+        <comment>/** Retrieves table schema information.&#xD;
+                &#xD;
+        @param character The type of additional schema to return. 'Column' for example. &#xD;
+        @return JsonObject A json object containing the schema  */</comment>
+        <parameter name="pcChildTypes" dataType="CHARACTER" position="67" mode="INPUT"/>
+    </method>
+    <method methodName="GetTables" returnType="JsonObject" signature="GetTables(INPUT:character,INPUT:character,INPUT:character,INPUT:character,INPUT:character):JsonObject" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false">
+        <comment>/** Returns table metadata/schema &#xD;
+        &#xD;
+        @param character The catalog for selection&#xD;
+        @param character The schema for selection&#xD;
+        @param character The table for selection&#xD;
+        @return JsonObject A json object containing the schema  */</comment>
+        <parameter name="pcCatalogName" dataType="CHARACTER" position="68" mode="INPUT"/>
+        <parameter name="pcSchemaName" dataType="CHARACTER" position="69" mode="INPUT"/>
+        <parameter name="pcTableName" dataType="CHARACTER" position="70" mode="INPUT"/>
+        <parameter name="pcTableType" dataType="CHARACTER" position="71" mode="INPUT"/>
+        <parameter name="pcChildTypes" dataType="CHARACTER" position="72" mode="INPUT"/>
+    </method>
+    <method methodName="RowReadCompleteEventHandler" signature="RowReadCompleteEventHandler(INPUT:Object,INPUT:RowReadEventArgs)" modifier="PROTECTED" isStatic="false" isFinal="false" isAbstract="false">
+        <parameter name="poSender" dataType="Object" position="73" mode="INPUT"/>
+        <parameter name="poEventArgs" dataType="RowReadEventArgs" position="74" mode="INPUT"/>
+    </method>
+    <using name="OpenEdge.Core.Assert" type="NONE"/>
+    <using name="OpenEdge.Core.ServerConnection.ODBCConnection" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.CTypeEnum" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.RowReadEventArgs" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.SqlGetColumns" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.SqlGetTables" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.SqlStatement" type="NONE"/>
+    <using name="Progress.Json.ObjectModel.JsonArray" type="NONE"/>
+    <using name="Progress.Json.ObjectModel.JsonObject" type="NONE"/>
+    <using name="Progress.Lang.Object" type="NONE"/>
+</unit>

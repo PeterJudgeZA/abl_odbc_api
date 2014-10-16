@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit packageName="OpenEdge.Data.ODBC" className="SqlStatement" isAbstract="true" isFinal="false" isInterface="false">
+    <classComment>/* ****&#xD;
+Copyright 2013 Progress Software Corporation&#xD;
+&#xD;
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);&#xD;
+you may not use this file except in compliance with the License.&#xD;
+You may obtain a copy of the License at&#xD;
+&#xD;
+  http://www.apache.org/licenses/LICENSE-2.0&#xD;
+&#xD;
+Unless required by applicable law or agreed to in writing, software&#xD;
+distributed under the License is distributed on an &quot;AS IS&quot; BASIS,&#xD;
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#xD;
+See the License for the specific language governing permissions and&#xD;
+limitations under the License.&#xD;
+**** */</classComment>
+    <classComment>/*------------------------------------------------------------------------&#xD;
+    File        : SqlStatement&#xD;
+    Purpose     : &#xD;
+    Syntax      : &#xD;
+    Description : &#xD;
+    Author(s)   : pjudge&#xD;
+    Created     : Wed Jul 10 13:29:33 EDT 2013&#xD;
+    Notes       : &#xD;
+  ----------------------------------------------------------------------*/</classComment>
+    <constructor signature="SqlStatement(INPUT:int64,INPUT:ODBCConnection)" modifier="PUBLIC">
+        <parameter name="piStmt" dataType="INT64" position="69" mode="INPUT"/>
+        <parameter name="poConnection" dataType="ODBCConnection" position="70" mode="INPUT"/>
+    </constructor>
+    <method methodName="Initialize" signature="Initialize()" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false"/>
+    <method methodName="Destroy" signature="Destroy()" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false"/>
+    <method methodName="MapColumns" signature="MapColumns()" modifier="PROTECTED" isStatic="false" isFinal="false" isAbstract="false"/>
+    <method methodName="ClearColumnSchema" signature="ClearColumnSchema(INPUT:character)" modifier="PROTECTED" isStatic="true" isFinal="false" isAbstract="false">
+        <parameter name="pcStatementId" dataType="CHARACTER" position="71" mode="INPUT"/>
+    </method>
+    <method methodName="EmptyColumnSchemaCache" signature="EmptyColumnSchemaCache()" modifier="PUBLIC" isStatic="true" isFinal="false" isAbstract="false"/>
+    <method methodName="ClearColumnSchema" signature="ClearColumnSchema()" modifier="PROTECTED" isStatic="false" isFinal="false" isAbstract="false"/>
+    <method methodName="AddColumnSchema" returnType="ROWID" signature="AddColumnSchema(INPUT:character,INPUT:integer,INPUT:character,INPUT:CTypeEnum):ROWID" modifier="PROTECTED" isStatic="true" isFinal="false" isAbstract="false">
+        <parameter name="pcStatementId" dataType="CHARACTER" position="72" mode="INPUT"/>
+        <parameter name="piColNum" dataType="INTEGER" position="73" mode="INPUT"/>
+        <parameter name="pcName" dataType="CHARACTER" position="74" mode="INPUT"/>
+        <parameter name="poCType" dataType="CTypeEnum" position="75" mode="INPUT"/>
+    </method>
+    <method methodName="GetColumnSchema" returnType="JsonArray" signature="GetColumnSchema(INPUT:character):JsonArray" modifier="PUBLIC" isStatic="true" isFinal="false" isAbstract="false">
+        <parameter name="pcStatementId" dataType="CHARACTER" position="76" mode="INPUT"/>
+    </method>
+    <method methodName="GetColumnSchema" returnType="JsonArray" signature="GetColumnSchema():JsonArray" modifier="PROTECTED" isStatic="false" isFinal="false" isAbstract="false"/>
+    <method methodName="AddColumnSchema" returnType="ROWID" signature="AddColumnSchema(INPUT:integer,INPUT:character,INPUT:CTypeEnum):ROWID" modifier="PROTECTED" isStatic="false" isFinal="false" isAbstract="false">
+        <parameter name="piColNum" dataType="INTEGER" position="77" mode="INPUT"/>
+        <parameter name="pcName" dataType="CHARACTER" position="78" mode="INPUT"/>
+        <parameter name="poCType" dataType="CTypeEnum" position="79" mode="INPUT"/>
+    </method>
+    <method methodName="RowReadJsonEventHandler" signature="RowReadJsonEventHandler(INPUT:Object,INPUT:RowReadEventArgs)" modifier="PROTECTED" isStatic="false" isFinal="false" isAbstract="false">
+        <parameter name="poSender" dataType="Object" position="80" mode="INPUT"/>
+        <parameter name="poEventArgs" dataType="RowReadEventArgs" position="81" mode="INPUT"/>
+    </method>
+    <method methodName="RowReadTableEventHandler" signature="RowReadTableEventHandler(INPUT:Object,INPUT:RowReadEventArgs)" modifier="PROTECTED" isStatic="false" isFinal="false" isAbstract="false">
+        <parameter name="poSender" dataType="Object" position="82" mode="INPUT"/>
+        <parameter name="poEventArgs" dataType="RowReadEventArgs" position="83" mode="INPUT"/>
+    </method>
+    <method methodName="RowReadCompleteTableEventHandler" signature="RowReadCompleteTableEventHandler(INPUT:Object,INPUT:RowReadEventArgs)" modifier="PROTECTED" isStatic="false" isFinal="false" isAbstract="false">
+        <parameter name="poSender" dataType="Object" position="84" mode="INPUT"/>
+        <parameter name="poEventArgs" dataType="RowReadEventArgs" position="85" mode="INPUT"/>
+    </method>
+    <method methodName="RowReadCompleteJsonEventHandler" signature="RowReadCompleteJsonEventHandler(INPUT:Object,INPUT:RowReadEventArgs)" modifier="PROTECTED" isStatic="false" isFinal="false" isAbstract="false">
+        <parameter name="poSender" dataType="Object" position="86" mode="INPUT"/>
+        <parameter name="poEventArgs" dataType="RowReadEventArgs" position="87" mode="INPUT"/>
+    </method>
+    <method methodName="FieldReadJsonEventHandler" signature="FieldReadJsonEventHandler(INPUT:Object,INPUT:FieldReadEventArgs)" modifier="PROTECTED" isStatic="false" isFinal="false" isAbstract="false">
+        <parameter name="poSender" dataType="Object" position="88" mode="INPUT"/>
+        <parameter name="poEventArgs" dataType="FieldReadEventArgs" position="89" mode="INPUT"/>
+    </method>
+    <method methodName="FieldReadTableEventHandler" signature="FieldReadTableEventHandler(INPUT:Object,INPUT:FieldReadEventArgs)" modifier="PROTECTED" isStatic="false" isFinal="false" isAbstract="false">
+        <parameter name="poSender" dataType="Object" position="90" mode="INPUT"/>
+        <parameter name="poEventArgs" dataType="FieldReadEventArgs" position="91" mode="INPUT"/>
+    </method>
+    <method methodName="LoadResultSet" signature="LoadResultSet(INPUT:JsonConstruct)" modifier="PROTECTED" isStatic="false" isFinal="false" isAbstract="false">
+        <comment>/** A default (helper) method for populating a table with a result set&#xD;
+        &#xD;
+        @param Object The buffer handle into which the result set is stored */</comment>
+        <parameter name="poTargetReference" dataType="JsonConstruct" position="92" mode="INPUT"/>
+    </method>
+    <method methodName="LoadResultSet" signature="LoadResultSet(INPUT:handle)" modifier="PROTECTED" isStatic="false" isFinal="false" isAbstract="false">
+        <comment>/** A default (helper) method for populating a table with a result set&#xD;
+        &#xD;
+        @param handle The buffer handle into which the result set is stored */</comment>
+        <parameter name="phTargetReference" dataType="HANDLE" position="93" mode="INPUT"/>
+    </method>
+    <method methodName="BuildResultSet" signature="BuildResultSet(INPUT:character,INPUT:Object)" modifier="PRIVATE" isStatic="false" isFinal="false" isAbstract="false">
+        <comment>/** Builds a result set and adds it to the specified target&#xD;
+        &#xD;
+        @param character The target type - JSON or TABLE&#xD;
+        @param integer A reference to the targer - an object reference or widget handle */</comment>
+        <parameter name="pcTargetType" dataType="CHARACTER" position="94" mode="INPUT"/>
+        <parameter name="poTargetReference" dataType="Object" position="95" mode="INPUT"/>
+    </method>
+    <method methodName="CloseCursor" signature="CloseCursor()" modifier="PROTECTED" isStatic="false" isFinal="false" isAbstract="false"/>
+    <method methodName="ColumnDataToDateTime" returnType="DATETIME" signature="ColumnDataToDateTime(INPUT:memptr,INPUT:SqlTypeEnum):DATETIME" modifier="PROTECTED" isStatic="false" isFinal="false" isAbstract="false">
+        <comment>/** Returns a datetime represented by a SQL_TYPE_TIMESTAMP structure.&#xD;
+        &#xD;
+        @param  memptr   A data structure containing the a SQL_TYPE_TIMESTAMP structure&#xD;
+        @param  SqlTypeEnum The SQL type of the data.&#xD;
+        @return datetime    The ABL date represented by the input structure. */</comment>
+        <parameter name="pmColumnValue" dataType="MEMPTR" position="97" mode="INPUT"/>
+        <parameter name="poSqlType" dataType="SqlTypeEnum" position="98" mode="INPUT"/>
+    </method>
+    <method methodName="ColumnDataToDate" returnType="DATE" signature="ColumnDataToDate(INPUT:memptr,INPUT:SqlTypeEnum):DATE" modifier="PROTECTED" isStatic="false" isFinal="false" isAbstract="false">
+        <comment>/** Returns a date represented by a SQL_TYPE_DATE structure.&#xD;
+        &#xD;
+        @param  memptr   A data structure containing the a SQL_TYPE_DATE structure&#xD;
+        @param  SqlTypeEnum The SQL type of the data.&#xD;
+        @return date    The ABL date represented by the input structure. */</comment>
+        <parameter name="pmColumnValue" dataType="MEMPTR" position="99" mode="INPUT"/>
+        <parameter name="poSqlType" dataType="SqlTypeEnum" position="100" mode="INPUT"/>
+    </method>
+    <method methodName="ColumnDataToTime" returnType="INTEGER" signature="ColumnDataToTime(INPUT:memptr,INPUT:SqlTypeEnum):INTEGER" modifier="PROTECTED" isStatic="false" isFinal="false" isAbstract="false">
+        <comment>/** Returns the seconds since midnight (since ABL has no built-in TIME data type).&#xD;
+        This behaviour emulates the TIME built-in function.&#xD;
+        &#xD;
+        @param memptr   A data structure containing the a SQL_TYPE_TIME structure&#xD;
+        @param  SqlTypeEnum The SQL type of the data.&#xD;
+        @return integer Number of seconds since midnight based on the input */</comment>
+        <parameter name="pmColumnValue" dataType="MEMPTR" position="101" mode="INPUT"/>
+        <parameter name="poSqlType" dataType="SqlTypeEnum" position="102" mode="INPUT"/>
+    </method>
+    <method methodName="ColumnDataToGuid" returnType="CHARACTER" signature="ColumnDataToGuid(INPUT:memptr,INPUT:SqlTypeEnum):CHARACTER" modifier="PROTECTED" isStatic="false" isFinal="false" isAbstract="false">
+        <comment>/** Returns a GUID represented by a SQL_GUID structure.&#xD;
+        &#xD;
+        @param  memptr   A data structure containing the a SQL_TYPE_DATE structure&#xD;
+        @param  SqlTypeEnum The SQL type of the data.&#xD;
+        @return date    The ABL date represented by the input structure. */</comment>
+        <parameter name="pmColumnValue" dataType="MEMPTR" position="103" mode="INPUT"/>
+        <parameter name="poSqlType" dataType="SqlTypeEnum" position="104" mode="INPUT"/>
+    </method>
+    <method methodName="ColumnDataToNumeric" returnType="DECIMAL" signature="ColumnDataToNumeric(INPUT:memptr,INPUT:SqlTypeEnum):DECIMAL" modifier="PROTECTED" isStatic="false" isFinal="false" isAbstract="false">
+        <comment>/** Returns a GUID represented by a SQL_NUMERIC structure.&#xD;
+        &#xD;
+        @param  memptr   A data structure containing the a SQL_TYPE_DATE structure&#xD;
+        @param  SqlTypeEnum The SQL type of the data.&#xD;
+        @return date    The ABL date represented by the input structure. */</comment>
+        <parameter name="pmColumnValue" dataType="MEMPTR" position="105" mode="INPUT"/>
+        <parameter name="poSqlType" dataType="SqlTypeEnum" position="106" mode="INPUT"/>
+    </method>
+    <method methodName="ColumnDataToClob" returnType="LONGCHAR" signature="ColumnDataToClob(INPUT:memptr,INPUT:SqlTypeEnum):LONGCHAR" modifier="PROTECTED" isStatic="false" isFinal="false" isAbstract="false">
+        <parameter name="pmColumnData" dataType="MEMPTR" position="107" mode="INPUT"/>
+        <parameter name="poSqlType" dataType="SqlTypeEnum" position="108" mode="INPUT"/>
+    </method>
+    <method methodName="ColumnDataToLogical" returnType="LOGICAL" signature="ColumnDataToLogical(INPUT:memptr,INPUT:SqlTypeEnum):LOGICAL" modifier="PROTECTED" isStatic="false" isFinal="false" isAbstract="false">
+        <parameter name="pmColumnData" dataType="MEMPTR" position="109" mode="INPUT"/>
+        <parameter name="poSqlType" dataType="SqlTypeEnum" position="110" mode="INPUT"/>
+    </method>
+    <method methodName="ColumnDataToInt64" returnType="INT64" signature="ColumnDataToInt64(INPUT:memptr,INPUT:SqlTypeEnum):INT64" modifier="PROTECTED" isStatic="false" isFinal="false" isAbstract="false">
+        <parameter name="pmColumnData" dataType="MEMPTR" position="111" mode="INPUT"/>
+        <parameter name="poSqlType" dataType="SqlTypeEnum" position="112" mode="INPUT"/>
+    </method>
+    <method methodName="ColumnDataToCharacter" returnType="CHARACTER" signature="ColumnDataToCharacter(INPUT:memptr,INPUT:SqlTypeEnum):CHARACTER" modifier="PROTECTED" isStatic="false" isFinal="false" isAbstract="false">
+        <parameter name="pmColumnData" dataType="MEMPTR" position="113" mode="INPUT"/>
+        <parameter name="poSqlType" dataType="SqlTypeEnum" position="114" mode="INPUT"/>
+    </method>
+    <method methodName="ColumnDataToDecimal" returnType="DECIMAL" signature="ColumnDataToDecimal(INPUT:memptr,INPUT:SqlTypeEnum):DECIMAL" modifier="PROTECTED" isStatic="false" isFinal="false" isAbstract="false">
+        <parameter name="pmColumnData" dataType="MEMPTR" position="115" mode="INPUT"/>
+        <parameter name="poSqlType" dataType="SqlTypeEnum" position="116" mode="INPUT"/>
+    </method>
+    <method methodName="ColumnDataToInt" returnType="INTEGER" signature="ColumnDataToInt(INPUT:memptr,INPUT:SqlTypeEnum):INTEGER" modifier="PROTECTED" isStatic="false" isFinal="false" isAbstract="false">
+        <parameter name="pmColumnData" dataType="MEMPTR" position="117" mode="INPUT"/>
+        <parameter name="poSqlType" dataType="SqlTypeEnum" position="118" mode="INPUT"/>
+    </method>
+    <property name="SQL_TRUE" dataType="INTEGER" isAbstract="false" isStatic="false" extent="0" modifier="PROTECTED" getModifier="PUBLIC" setModifier="NONE">
+        <propertyComment>/*------------------------------------------------------------------------&#xD;
+    File        : SqlStatementConstants.i&#xD;
+    Purpose     : Constant values for SQL&#xD;
+    Author(s)   : pjudge &#xD;
+    Created     : Mon Jul 15 10:53:52 EDT 2013&#xD;
+    Notes       :&#xD;
+  ----------------------------------------------------------------------*/</propertyComment>
+    </property>
+    <property name="SQL_FALSE" dataType="INTEGER" isAbstract="false" isStatic="false" extent="0" modifier="PROTECTED" getModifier="PUBLIC" setModifier="NONE"/>
+    <property name="SQL_PRED_NONE" dataType="INTEGER" isAbstract="false" isStatic="false" extent="0" modifier="PROTECTED" getModifier="PUBLIC" setModifier="NONE"/>
+    <property name="SQL_PRED_CHAR" dataType="INTEGER" isAbstract="false" isStatic="false" extent="0" modifier="PROTECTED" getModifier="PUBLIC" setModifier="NONE"/>
+    <property name="SQL_PRED_BASIC" dataType="INTEGER" isAbstract="false" isStatic="false" extent="0" modifier="PROTECTED" getModifier="PUBLIC" setModifier="NONE"/>
+    <property name="SQL_SEARCHABLE" dataType="INTEGER" isAbstract="false" isStatic="false" extent="0" modifier="PROTECTED" getModifier="PUBLIC" setModifier="NONE"/>
+    <property name="SQL_PRED_SEARCHABLE" dataType="INTEGER" isAbstract="false" isStatic="false" extent="0" modifier="PROTECTED" getModifier="PUBLIC" setModifier="NONE"/>
+    <property name="SQL_NO_NULLS" dataType="INTEGER" isAbstract="false" isStatic="false" extent="0" modifier="PROTECTED" getModifier="PUBLIC" setModifier="NONE"/>
+    <property name="SQL_NULLABLE" dataType="INTEGER" isAbstract="false" isStatic="false" extent="0" modifier="PROTECTED" getModifier="PUBLIC" setModifier="NONE"/>
+    <property name="SQL_NULLABLE_UNKNOWN" dataType="INTEGER" isAbstract="false" isStatic="false" extent="0" modifier="PROTECTED" getModifier="PUBLIC" setModifier="NONE"/>
+    <property name="SQL_ALL_CATALOGS" dataType="CHARACTER" isAbstract="false" isStatic="false" extent="0" modifier="PROTECTED" getModifier="PUBLIC" setModifier="NONE">
+        <propertyComment>/* QUERY CONSTANTS */</propertyComment>
+    </property>
+    <property name="SQL_ALL_SCHEMAS" dataType="CHARACTER" isAbstract="false" isStatic="false" extent="0" modifier="PROTECTED" getModifier="PUBLIC" setModifier="NONE"/>
+    <property name="SQL_ALL_TABLE_TYPES" dataType="CHARACTER" isAbstract="false" isStatic="false" extent="0" modifier="PROTECTED" getModifier="PUBLIC" setModifier="NONE"/>
+    <property name="SQL_NULL_DATA" dataType="INTEGER" isAbstract="false" isStatic="false" extent="0" modifier="PROTECTED" getModifier="PUBLIC" setModifier="NONE">
+        <propertyComment>/* SqlGetData return values */</propertyComment>
+    </property>
+    <property name="SQL_NO_TOTAL" dataType="INTEGER" isAbstract="false" isStatic="false" extent="0" modifier="PROTECTED" getModifier="PUBLIC" setModifier="NONE"/>
+    <property name="SQL_MAX_COLUMN_NAME_LEN" dataType="INTEGER" isAbstract="false" isStatic="false" extent="0" modifier="PROTECTED" getModifier="PUBLIC" setModifier="NONE">
+        <propertyComment>/* SIZES */</propertyComment>
+    </property>
+    <property name="SqlCommonLib" dataType="SqlCommonFunctions" isAbstract="false" isStatic="false" extent="0" modifier="PROTECTED" getModifier="PUBLIC" setModifier="PUBLIC"/>
+    <property name="StatementId" dataType="CHARACTER" isAbstract="false" isStatic="false" extent="0" modifier="PROTECTED" getModifier="PUBLIC" setModifier="PUBLIC">
+        <propertyComment>/** An unique identifier of a particular statement. Typically a hash of the statement or some other named identifier,&#xD;
+        but not the statement handle, which is transient.  */</propertyComment>
+    </property>
+    <property name="StatementHandle" dataType="INT64" isAbstract="false" isStatic="false" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="ODBCConnection" dataType="ODBCConnection" isAbstract="false" isStatic="false" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <event eventName="RowRead" signature="RowRead(INPUT:Object,INPUT:RowReadEventArgs)" modifier="PROTECTED" isStatic="false" isAbstract="false">
+        <parameter name="poSender" dataType="Object" position="63" mode="INPUT"/>
+        <parameter name="poArgs" dataType="RowReadEventArgs" position="64" mode="INPUT"/>
+    </event>
+    <event eventName="RowReadComplete" signature="RowReadComplete(INPUT:Object,INPUT:RowReadEventArgs)" modifier="PROTECTED" isStatic="false" isAbstract="false">
+        <parameter name="poSender" dataType="Object" position="65" mode="INPUT"/>
+        <parameter name="poArgs" dataType="RowReadEventArgs" position="66" mode="INPUT"/>
+    </event>
+    <event eventName="FieldRead" signature="FieldRead(INPUT:Object,INPUT:FieldReadEventArgs)" modifier="PROTECTED" isStatic="false" isAbstract="false">
+        <parameter name="poSender" dataType="Object" position="67" mode="INPUT"/>
+        <parameter name="poArgs" dataType="FieldReadEventArgs" position="68" mode="INPUT"/>
+    </event>
+    <using name="OpenEdge.Core.Assert" type="NONE"/>
+    <using name="OpenEdge.Core.ServerConnection.ODBCConnection" type="NONE"/>
+    <using name="OpenEdge.Core.WidgetHandle" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.SqlStatement" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.CTypeEnum" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.FieldReadEventArgs" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.ODBCCallError" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.RowReadEventArgs" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.SqlCommonFunctions" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.SqlHandleTypeEnum" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.SqlReturnCodeEnum" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.SqlTypeEnum" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.TypeMap" type="NONE"/>
+    <using name="Progress.Json.ObjectModel.JsonArray" type="NONE"/>
+    <using name="Progress.Json.ObjectModel.JsonConstruct" type="NONE"/>
+    <using name="Progress.Json.ObjectModel.JsonObject" type="NONE"/>
+    <using name="Progress.Lang.AppError" type="NONE"/>
+    <using name="Progress.Lang.Error" type="NONE"/>
+    <using name="Progress.Lang.Object" type="NONE"/>
+    <using name="OpenEdge.Core.EnumMember" type="NONE"/>
+    <using name="OpenEdge.Core.DataTypeEnum" type="NONE"/>
+</unit>

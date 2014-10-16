@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="OpenEdge Data ODBC API" default="build" basedir="../">
+	<property file="resources/build.properties" />
+	<property name="appRoot"     value="${env.appRoot}" />
+	<property name="projectRoot" value="${appRoot}" />
+    
+	<!-- Common, property-driven tasks are in build-common.xml (eg. doc, package, bundle) -->
+	<import file="C:/devarea/common/ant/build-common.xml"/>
+
+	<!-- Creates an archive for use with the PDSOE Samples page (iue). Contains code, doc and other artifacts. -->
+	<target name="bundle" description="Packages the project" >
+		
+		<!-- Create a empty/dummy cfg file -->
+		<echo file="${projectRoot}/temp/d2c-empty.json" force="true">{"DataSourceName":null, "UserName":null, "Password":null }
+		</echo>
+			
+		<ant target="bundle_iue"/>
+		
+	    <zip destfile="${bundleFile}" update="true">
+	    	<zipfileset file="${projectRoot}/temp/d2c-empty.json" fullpath="conf/d2c.json"/>
+	    </zip>
+	</target>
+
+	<!-- Builds/compiles the sample -->
+	<target name="build" description="Builds source files">
+		<mkdir dir="${projectRoot}/bin"/>
+		<mkdir dir="${projectRoot}/temp/preprocess" />
+		
+		<PCTCompileExt dlcHome="${env.DLC}"
+		      destDir="bin" 
+		      cpStream="UTF-8" 
+		      multiCompile="true" 
+		      preprocessDir="${projectRoot}/temp/preprocess"
+		      forceCompile="true">
+			
+			<propath>
+				<pathelement path="${projectRoot}/src" />
+				<pathelement path="${projectRoot}/tests"/>
+				<pathelement path="${env.DLC}/tty/OpenEdge.Core.pl"/>
+			</propath>
+				
+			<fileset dir="${projectRoot}/src">
+				<include name="**/*.p" />
+				<include name="**/*.cls" />
+			</fileset>
+		</PCTCompileExt>
+	</target>
+
+</project>

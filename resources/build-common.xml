@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+    <!-- This file assumes a conf/, resources/, src/, bin/, temp/, tests/ and doc/ folder under the project
+         root. In the Ant launch config, make sure that you set the appRoot property to be
+         the project root folder.  
+     -->
+	<property environment="env" />
+	<property file="resources/build.properties" />
+	
+	<taskdef resource="PCT.properties" />
+	<typedef resource="types.properties" />
+	<taskdef resource="extras.properties" />
+	
+	<property name="appRoot" value="${env.appRoot}" />
+
+	<target name="package_rcode" description="Creates a PL file from the r-code"
+		depends="build">
+		
+		<delete file="${projectRoot}/bin/${library.PLName}" quiet="true" />
+		
+		<PCTLibrary destfile="${projectRoot}/bin/${library.PLName}"
+			dlcHome="${env.DLC}" noCompress="yes">
+			<fileset dir="${projectRoot}/bin/">
+				<include name="**/*.r" />
+				<exclude name=".pct/*" />
+			</fileset>
+		</PCTLibrary>
+    </target>
+    
+    <target name="package_source" description="Creates an archive from the source code">
+        <property name="sourceArchiveBase"
+            value="${appRoot}/src/${library.archiveName}_src_${library.version}" />            
+        
+        <delete file="${sourceArchiveBase}.zip" />
+        <delete file="${sourceArchiveBase}.tar" />
+        <delete file="${sourceArchiveBase}.tar.gz" />
+        
+        <zip destfile="${sourceArchiveBase}.zip">
+            <zipfileset dir="${projectRoot}/src">
+                <include name="**/*.cls" />
+                <include name="**/*.resx" />
+                <include name="**/*.p" />
+                <include name="**/*.w" />
+                <include name="**/*.i" />
+                <exclude name=".pct/*" />
+                <exclude name="**/*.r" />
+            </zipfileset>
+        </zip>
+        
+        <tar destfile="${sourceArchiveBase}.tar" compression="none">
+          <zipfileset src="${sourceArchiveBase}.zip"/>
+        </tar>
+        
+        <tar destfile="${sourceArchiveBase}.tar.gz" compression="gzip">
+          <zipfileset src="${sourceArchiveBase}.zip"/>
+        </tar>
+        
+	</target>
+
+	<!-- Creates documentation using PCT -->
+	<target name="doc" depends="build">
+
+		<mkdir dir="${projectRoot}/doc/xml" />
+		<mkdir dir="${projectRoot}/doc/html" />
+
+		<ClassDocumentation dlcHome="${env.DLC}"
+			destDir="${projectRoot}/doc/xml">
+			<propath>
+				<pathelement path="${projectRoot}/src" />
+			</propath>
+			
+			<fileset dir="${projectRoot}/temp/preprocess">
+				<include name="**/*.cls" />
+				<!-- <include name="**/*.p" /> -->
+				<!-- <include name="**/*.w" /> -->
+			</fileset>
+		</ClassDocumentation>
+
+		<HTMLDocumentation dlcHome="${env.DLC}" sourceDir="${projectRoot}/doc/xml"
+			destDir="${projectRoot}/doc/html" treeViewOverview="true" />
+
+		<!-- Remove the preprocessed directory -->
+		<delete dir="${projectRoot}/temp/preprocess" />
+	</target>
+	
+    <target name="cleanup">
+        <!-- Remove the preprocess directory -->
+        <delete dir="${projectRoot}/temp/preprocess" />
+        <!-- Remove the .pct directory -->
+        <delete dir="${projectRoot}/bin/.pct" />
+    </target>
+    
+    <!-- Create a bundle that's consumable by the PDSOE Samples page -->
+    <target name="bundle_iue" depends="doc">        
+        <property name="bundleFile"
+            value="${projectRoot}/iue/${iue.archiveName}" />
+	    <delete file="${bundleFile}" />
+	    
+        <ant target="generate_versioninfo" antfile="resources/build.xml"/>
+        <zip destfile="${bundleFile}" update="true">
+			<zipfileset file="${projectRoot}/version.txt" />
+		</zip>
+		
+        <ant target="archive_project" antfile="resources/build.xml"/>
+    </target>
+
+	<target name="bundle_project">
+	   <property name="bundleFile"
+            value="${projectRoot}/${project.name}.zip" />
+       <delete file="${bundleFile}" />
+                   
+       <ant target="archive_project" antfile="resources/build.xml"/>            
+	</target>
+	
+	<target name="archive_project" if="bundleFile">	
+	   <echo file="${projectRoot}/temp/empty.dir" force="true"/>	   	   
+	   
+		<zip destfile="${bundleFile}" update="true">		    
+			<zipfileset dir="${projectRoot}/conf" prefix="conf" />
+			<zipfileset dir="${projectRoot}/doc" prefix="doc" />			
+			<zipfileset dir="${projectRoot}/src" prefix="src"
+				excludes="**/.copyarea.db **/**.r" />
+			<zipfileset dir="${projectRoot}/tests" prefix="tests"
+				excludes="**/.copyarea.db **/**.r" />
+				
+			<zipfileset dir="${projectRoot}/resources" prefix="resources" />
+			<zipfileset file="C:/devarea/common/ant/build-common.xml" prefix="resources" /> 
+			
+		    <!-- dummy file to create bin directory in archive -->
+		    <zipfileset file="${projectRoot}/temp/empty.dir" prefix="bin" />
+		    
+			<zipfileset file="${projectRoot}/.project" />
+			<zipfileset file="${projectRoot}/.propath" />
+			
+			<zipfileset file="${projectRoot}/README.md" />
+			<zipfileset file="${projectRoot}/LICENSE" />
+			<zipfileset file="${projectRoot}/NOTICE" />
+		</zip>
+	</target>
+	
+	<target name="generate_versioninfo">
+        <ProgressVersion dlcHome="${env.DLC}" majorVersion="dlcMajor"
+            minorVersion="dlcMinor" reducedVersion="dlcReduced" fullVersion="dlcFull"
+            revision="dlcRevision" />
+        <tstamp>
+            <format property="ISO_DATETIME" pattern="yyyy-MM-dd'T'HH:mm:ss.SSSZ" />
+        </tstamp>
+
+        <!-- Keep the line break before the closing echo tag to ensure its written 
+            into the version.txt file -->
+        <echo file="${projectRoot}/version.txt" force="true">Library-Name    : ${library.description}
+Library-Version : ${library.version}
+Build-Date      : ${ISO_DATETIME}
+OpenEdge-Version: ${dlcFull}
+</echo>
+	</target>
+
+</project>

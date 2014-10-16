@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit packageName="OpenEdge.Data.ODBC" className="SqlDateTimeEnum" inherits="EnumMember" isAbstract="false" isFinal="false" isInterface="false">
+    <classComment>/* ****&#xD;
+Copyright 2013 Progress Software Corporation&#xD;
+&#xD;
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);&#xD;
+you may not use this file except in compliance with the License.&#xD;
+You may obtain a copy of the License at&#xD;
+&#xD;
+  http://www.apache.org/licenses/LICENSE-2.0&#xD;
+&#xD;
+Unless required by applicable law or agreed to in writing, software&#xD;
+distributed under the License is distributed on an &quot;AS IS&quot; BASIS,&#xD;
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#xD;
+See the License for the specific language governing permissions and&#xD;
+limitations under the License.&#xD;
+**** */</classComment>
+    <classComment>/*------------------------------------------------------------------------&#xD;
+    File        : SqlDateTimeEnum&#xD;
+    Purpose     : &#xD;
+    Syntax      : &#xD;
+    Description : &#xD;
+    Author(s)   : pjudge&#xD;
+    Created     : Fri Jul 26 12:02:00 EDT 2013&#xD;
+    Notes       : &#xD;
+  ----------------------------------------------------------------------*/</classComment>
+    <constructor signature="SqlDateTimeEnum(INPUT:integer,INPUT:character)" modifier="PROTECTED">
+        <parameter name="piValue" dataType="INTEGER" position="0" mode="INPUT"/>
+        <parameter name="pcName" dataType="CHARACTER" position="1" mode="INPUT"/>
+    </constructor>
+    <property name="SQL_CODE_YEAR" dataType="SqlDateTimeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_CODE_MONTH" dataType="SqlDateTimeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_CODE_DAY" dataType="SqlDateTimeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_CODE_HOUR" dataType="SqlDateTimeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_CODE_MINUTE" dataType="SqlDateTimeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_CODE_SECOND" dataType="SqlDateTimeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_CODE_YEAR_TO_MONTH" dataType="SqlDateTimeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_CODE_DAY_TO_HOUR" dataType="SqlDateTimeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_CODE_DAY_TO_MINUTE" dataType="SqlDateTimeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_CODE_DAY_TO_SECOND" dataType="SqlDateTimeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_CODE_HOUR_TO_MINUTE" dataType="SqlDateTimeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_CODE_HOUR_TO_SECOND" dataType="SqlDateTimeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_CODE_MINUTE_TO_SECOND" dataType="SqlDateTimeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_INTERVAL_YEAR" dataType="SqlDateTimeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_INTERVAL_MONTH" dataType="SqlDateTimeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_INTERVAL_DAY" dataType="SqlDateTimeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_INTERVAL_HOUR" dataType="SqlDateTimeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_INTERVAL_MINUTE" dataType="SqlDateTimeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_INTERVAL_SECOND" dataType="SqlDateTimeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_INTERVAL_YEAR_TO_MONTH" dataType="SqlDateTimeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_INTERVAL_DAY_TO_HOUR" dataType="SqlDateTimeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_INTERVAL_DAY_TO_MINUTE" dataType="SqlDateTimeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_INTERVAL_DAY_TO_SECOND" dataType="SqlDateTimeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_INTERVAL_HOUR_TO_MINUTE" dataType="SqlDateTimeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_INTERVAL_HOUR_TO_SECOND" dataType="SqlDateTimeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_INTERVAL_MINUTE_TO_SECOND" dataType="SqlDateTimeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <using name="OpenEdge.Core.EnumMember" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.SqlDateTimeEnum" type="NONE"/>
+</unit>

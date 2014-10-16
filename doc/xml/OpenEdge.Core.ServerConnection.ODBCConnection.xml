@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit packageName="OpenEdge.Core.ServerConnection" className="ODBCConnection" isAbstract="false" isFinal="false" isInterface="false">
+    <interfaces>IServerConnection</interfaces>
+    <classComment>/* ****&#xD;
+Copyright 2013 Progress Software Corporation&#xD;
+&#xD;
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);&#xD;
+you may not use this file except in compliance with the License.&#xD;
+You may obtain a copy of the License at&#xD;
+&#xD;
+  http://www.apache.org/licenses/LICENSE-2.0&#xD;
+&#xD;
+Unless required by applicable law or agreed to in writing, software&#xD;
+distributed under the License is distributed on an &quot;AS IS&quot; BASIS,&#xD;
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#xD;
+See the License for the specific language governing permissions and&#xD;
+limitations under the License.&#xD;
+**** */</classComment>
+    <classComment>/*------------------------------------------------------------------------&#xD;
+    File        : ODBCConnection&#xD;
+    Purpose     : &#xD;
+    Syntax      : &#xD;
+    Description : &#xD;
+    Author(s)   : pjudge&#xD;
+    Created     : Tue Jul 02 13:08:37 EDT 2013&#xD;
+    Notes       : &#xD;
+  ----------------------------------------------------------------------*/</classComment>
+    <constructor signature="ODBCConnection(INPUT:JsonObject)" modifier="PUBLIC">
+        <parameter name="poParameters" dataType="JsonObject" position="26" mode="INPUT"/>
+    </constructor>
+    <constructor signature="ODBCConnection(INPUT:IConnectionParameters)" modifier="PUBLIC">
+        <parameter name="poConnectionParameters" dataType="IConnectionParameters" position="27" mode="INPUT"/>
+    </constructor>
+    <constructor signature="ODBCConnection(INPUT:ODBCConnectionParameters)" modifier="PUBLIC">
+        <parameter name="poConnectionParameters" dataType="ODBCConnectionParameters" position="28" mode="INPUT"/>
+    </constructor>
+    <method methodName="Initialize" signature="Initialize()" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false"/>
+    <method methodName="Destroy" signature="Destroy()" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false"/>
+    <method methodName="Connect" signature="Connect()" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false">
+        <comment>/** Connect to the server specified, based on the ConnectionParameters */</comment>
+    </method>
+    <method methodName="CreateServer" signature="CreateServer()" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false">
+        <comment>/** Creates a server object (ie this-object:Server). This is separated&#xD;
+        from the Connect/Disconnect pair of methods so that one server can &#xD;
+        be connected and disconnected multiple time. */</comment>
+    </method>
+    <method methodName="SetEnvAttribute" signature="SetEnvAttribute(INPUT:integer,INPUT:integer)" modifier="PRIVATE" isStatic="false" isFinal="false" isAbstract="false">
+        <parameter name="piAttribute" dataType="INTEGER" position="29" mode="INPUT"/>
+        <parameter name="piValue" dataType="INTEGER" position="30" mode="INPUT"/>
+    </method>
+    <method methodName="SetEnvAttribute" signature="SetEnvAttribute(INPUT:integer,INPUT:character)" modifier="PRIVATE" isStatic="false" isFinal="false" isAbstract="false">
+        <parameter name="piAttribute" dataType="INTEGER" position="31" mode="INPUT"/>
+        <parameter name="pcValue" dataType="CHARACTER" position="32" mode="INPUT"/>
+    </method>
+    <method methodName="DestroyServer" signature="DestroyServer()" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false">
+        <comment>/** Destroys the server object (ie this-object:Server). This is separated&#xD;
+        from the Connect/Disconnect pair of methods so that one server can &#xD;
+        be connected and disconnected multiple time. */</comment>
+    </method>
+    <method methodName="Disconnect" signature="Disconnect()" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false">
+        <comment>/** Disconnect from the server, if connected */</comment>
+    </method>
+    <method methodName="CreateExecuteStatement" returnType="SqlExecuteDirect" signature="CreateExecuteStatement():SqlExecuteDirect" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false">
+        <comment>/** Returns a new statement object to a caller. The SqlExecuteDirect object is used&#xD;
+            to execute a query against the connection's data source.&#xD;
+            &#xD;
+            @return SqlExecuteDirect  */</comment>
+    </method>
+    <method methodName="SqlStatementFactory" returnType="SqlStatement" signature="SqlStatementFactory(INPUT:Progress.Lang.Class):SqlStatement" modifier="PRIVATE" isStatic="false" isFinal="false" isAbstract="false">
+        <parameter name="poStatementType" dataType="Progress.Lang.Class" position="33" mode="INPUT"/>
+    </method>
+    <method methodName="ClearStatementCache" signature="ClearStatementCache(INPUT:int64)" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false">
+        <comment>/** Cleans up the statement cache and handle.&#xD;
+        @param int64 The statement handle to clean up.     */</comment>
+        <parameter name="piStatementHandle" dataType="INT64" position="34" mode="INPUT"/>
+    </method>
+    <method methodName="ClearStatementCache" signature="ClearStatementCache()" modifier="PROTECTED" isStatic="false" isFinal="false" isAbstract="false">
+        <comment>/** Clear the entire statement cache */</comment>
+    </method>
+    <method methodName="CreateTableStatement" returnType="SqlGetTables" signature="CreateTableStatement():SqlGetTables" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false"/>
+    <method methodName="CreateColumnStatement" returnType="SqlGetColumns" signature="CreateColumnStatement():SqlGetColumns" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false"/>
+    <method methodName="CreateTypeInfoStatement" returnType="SqlGetTypeInfo" signature="CreateTypeInfoStatement():SqlGetTypeInfo" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false"/>
+    <method methodName="ExecuteStatement" signature="ExecuteStatement(INPUT:character,OUTPUT:JsonObject)" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false">
+        <comment>/** Executes a SQL statement and returns a result set.&#xD;
+        &#xD;
+        @param character A SQL statement to execute &#xD;
+        @param JsonObject Output The restult set of the SQL statement */</comment>
+        <parameter name="pcStatement" dataType="CHARACTER" position="35" mode="INPUT"/>
+        <parameter name="poResultSet" dataType="JsonObject" position="36" mode="OUTPUT"/>
+    </method>
+    <method methodName="ExecuteStatement" signature="ExecuteStatement(INPUT:character,OUTPUT:table-handle)" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false">
+        <comment>/** Executes a SQL statement and returns a result set.&#xD;
+        &#xD;
+        @param character A SQL statement to execute &#xD;
+        @param table-handle Output A temp-table build from the columns defined by the SQL statement that contains the result set */</comment>
+        <parameter name="pcStatement" dataType="CHARACTER" position="37" mode="INPUT"/>
+        <parameter name="phResultSet" dataType="TABLE-HANDLE" position="38" mode="OUTPUT"/>
+    </method>
+    <method methodName="ExecuteStatement" signature="ExecuteStatement(INPUT:character,INPUT:handle)" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false">
+        <comment>/** Executes a SQL statement and populates a result set.&#xD;
+        &#xD;
+        @param character A SQL statement to execute &#xD;
+        @param handle   A buffer handle to contains the result set */</comment>
+        <parameter name="pcStatement" dataType="CHARACTER" position="39" mode="INPUT"/>
+        <parameter name="phResultSet" dataType="HANDLE" position="40" mode="INPUT"/>
+    </method>
+    <method methodName="GetTableSchema" returnType="JsonObject" signature="GetTableSchema(INPUT:character):JsonObject" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false">
+        <comment>/** Returns the schema - table and columns - for a single table.&#xD;
+    &#xD;
+        @param character The table for which to return schema&#xD;
+        @return JsonObject The schema for the table */</comment>
+        <parameter name="pcTableName" dataType="CHARACTER" position="41" mode="INPUT"/>
+    </method>
+    <method methodName="GetTables" returnType="JsonObject" signature="GetTables(INPUT:logical):JsonObject" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false">
+        <comment>/** Returns the schema - table only - for all tables.&#xD;
+    &#xD;
+        @param logical If true, retrieve columns and other related schema for each table&#xD;
+        @return JsonObject The schema for the table */</comment>
+        <parameter name="plChildSchema" dataType="LOGICAL" position="42" mode="INPUT"/>
+    </method>
+    <method methodName="GetColumns" returnType="JsonArray" signature="GetColumns(INPUT:character):JsonArray" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false">
+        <comment>/** Returns the columns for a single table.&#xD;
+    &#xD;
+        @param character The table for which to return schema&#xD;
+        @return JsonArray The column schema for the table */</comment>
+        <parameter name="pcTableName" dataType="CHARACTER" position="43" mode="INPUT"/>
+    </method>
+    <method methodName="GetTypeInfo" returnType="JsonArray" signature="GetTypeInfo():JsonArray" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false">
+        <comment>/** Returns information about all types supported by the data source&#xD;
+    &#xD;
+        @return JsonArray An array of types. */</comment>
+    </method>
+    <method methodName="GetTypeInfo" returnType="JsonArray" signature="GetTypeInfo(INPUT:SqlTypeEnum):JsonArray" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false">
+        <comment>/** Returns information about the types supported by the data source&#xD;
+        that map to a specific SQL data type&#xD;
+        &#xD;
+        @param SqlTypeEnum The SQL type for which to list supported types.&#xD;
+        @return JsonArray An array of types. */</comment>
+        <parameter name="poSqlType" dataType="SqlTypeEnum" position="44" mode="INPUT"/>
+    </method>
+    <property name="SQL_ATTR_ODBC_VERSION" dataType="INTEGER" isAbstract="false" isStatic="false" extent="0" modifier="PRIVATE" getModifier="PUBLIC" setModifier="NONE">
+        <propertyComment>/* attribute names/values */</propertyComment>
+    </property>
+    <property name="SQL_OV_ODBC2" dataType="INTEGER" isAbstract="false" isStatic="false" extent="0" modifier="PRIVATE" getModifier="PUBLIC" setModifier="NONE"/>
+    <property name="SQL_OV_ODBC3" dataType="INTEGER" isAbstract="false" isStatic="false" extent="0" modifier="PRIVATE" getModifier="PUBLIC" setModifier="NONE"/>
+    <property name="SQL_NTS" dataType="INTEGER" isAbstract="false" isStatic="false" extent="0" modifier="PRIVATE" getModifier="PUBLIC" setModifier="NONE">
+        <propertyComment>/* null-terminating strings */</propertyComment>
+    </property>
+    <property name="SQL_NTSL" dataType="INTEGER" isAbstract="false" isStatic="false" extent="0" modifier="PRIVATE" getModifier="PUBLIC" setModifier="NONE"/>
+    <property name="SqlCommonLib" dataType="SqlCommonFunctions" isAbstract="false" isStatic="false" extent="0" modifier="PROTECTED" getModifier="PUBLIC" setModifier="PUBLIC">
+        <propertyComment>/* EOF */</propertyComment>
+    </property>
+    <property name="Connected" dataType="LOGICAL" isAbstract="false" isStatic="false" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="NONE">
+        <propertyComment>/**  Returns true if the server is valid and connected. False otherwise */</propertyComment>
+    </property>
+    <property name="ConnectionParameters" dataType="IConnectionParameters" isAbstract="false" isStatic="false" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE">
+        <propertyComment>/** Parameters for this connection */</propertyComment>
+    </property>
+    <property name="Server" dataType="Object" isAbstract="false" isStatic="false" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="NONE">
+        <propertyComment>/** A reference to the actual server. The type of this property depends on the server type &#xD;
+        (since AppServers have HANDLEs, BPMServers have IBizLogicAPI and databases none. The Object &#xD;
+        acts as a wrapper for handle-based servers */</propertyComment>
+    </property>
+    <using name="OpenEdge.Core.Assert" type="NONE"/>
+    <using name="OpenEdge.Core.ServerConnection.IConnectionParameters" type="NONE"/>
+    <using name="OpenEdge.Core.ServerConnection.IServerConnection" type="NONE"/>
+    <using name="OpenEdge.Core.ServerConnection.ODBCConnectionParameters" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.SQLGetTypeInfo" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.SqlCommonFunctions" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.SqlExecuteDirect" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.SqlGetColumns" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.SqlGetTables" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.SqlHandleTypeEnum" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.SqlStatement" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.SqlTypeEnum" type="NONE"/>
+    <using name="Progress.Json.ObjectModel.JsonArray" type="NONE"/>
+    <using name="Progress.Json.ObjectModel.JsonObject" type="NONE"/>
+    <using name="Progress.Lang.Object" type="NONE"/>
+    <using name="Progress.Lang.ParameterList" type="NONE"/>
+</unit>

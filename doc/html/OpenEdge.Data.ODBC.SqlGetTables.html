@@ -1,0 +1,5767 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+    <HEAD>
+        <meta http-equiv="expires" content="86400">
+        <TITLE>Class reference</TITLE>
+        <link rel="stylesheet" type="text/css" href="resources/stylesheet.css" title="Style">
+        <SCRIPT src="resources/jquery.js"></SCRIPT>
+        <SCRIPT src="resources/functions.js"></SCRIPT>
+        <SCRIPT src="resources/frameload.js"></SCRIPT>
+        <!-- Browser Switch -->
+        <!--[if lt IE 8]>
+            <!-- Smaller than IE 8 -->
+            <style type="text/css">
+                .HeightFixIE { 
+                    height: 23px !important;
+                }
+            </style>
+        <![endif]-->
+        <!--[if IE 8]>
+            <!-- Equal IE 8 -->
+            <style type="text/css">
+                .HeightFixIE { 
+                    height: 20px !important;
+                }
+            </style>
+        <![endif]-->
+    </HEAD>
+<BODY onload="onLoad()">
+    <table class="header_table">
+        <tbody>
+        <tr>
+            <td>
+            	<div class="unit_header">
+            	    <table border="0">
+            	       <tbody>
+                	        <tr>
+                	            <td>
+                	                <span class="span_namespace">Namespace:</span>   
+                	            </td>
+                	            <td>
+                	                <span class="span_packagename"><a href="OpenEdge.Data.ODBC.package.html">OpenEdge.Data.ODBC<a></span>
+                	            </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="span_pagetype">Class&nbsp;</span>
+                                </td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <span class="span_classname">SqlGetTables</span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="span_parentclass">Parent classes:</span>   
+                                </td>
+                                <td class="span_parentclass">
+                                    <div class='parentclasses'><div style='padding-left:0em; height:12px' class='parentclassesitem'>                                                            <table style='border-spacing:0px'>                                                                <tr>                                                                    <td>                                                                    Progress.Lang.Object                                                                    </td>                                                                </tr>                                                            </table>                                                       </div><div style='padding-left:1em; height:16px' class='parentclassesitem'>                                                            <table>                                                                <tr>                                                                    <td>                                                                        <div class='parentclassnode'></div>                                                                    </td>                                                                    <td>                                                                    <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a>                                                                    </td>                                                                </tr>                                                            </table>                                                       </div><div style='padding-left:3em; height:16px' class='parentclassesitem'>                                                                <table>                                                                    <tr>                                                                        <td>                                                                            <div class='parentclassnode'></div>                                                                        </td>                                                                        <td>                                                                        <a href='OpenEdge.Data.ODBC.SqlGetTables.html'>OpenEdge.Data.ODBC.SqlGetTables</a>                                                                        </td>                                                                    </tr>                                                                </table>                                                           </div></div><br>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <span class="span_inherits">Inherits:</span>
+                                </td>
+                                <td class="unit_inherits">
+                                    <span class="span_inherits"><a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a></span>
+                                </td>
+                            </tr>
+                            
+                            <!--
+                            <tr>
+                                <td>
+                                    <span class="span_implements">Implements:</span> 
+                                </td>
+                                <td class="unit_interface">
+                                    <span class="span_implements"></span> 
+                                </td>
+                            </tr>
+                            -->
+                            <tr>
+                                <td>
+                                    <span class="span_inherits"></span>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="span_inherits"></span>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                	<br>
+                	<span class="unit_comment">
+                	<table><tbody class='unit_commment_table'><td class='unitcommentparam'></td><td class='unitcommentdesc'>/* **** </td></tr><td class='unitcommentparam'></td><td class='unitcommentdesc'>Copyright 2013 Progress Software Corporation </td></tr><td class='unitcommentparam'></td><td class='unitcommentdesc'>Licensed under the Apache License, Version 2.0 (the "License"); </td></tr><td class='unitcommentparam'></td><td class='unitcommentdesc'>you may not use this file except in compliance with the License. </td></tr><td class='unitcommentparam'></td><td class='unitcommentdesc'>You may obtain a copy of the License at </td></tr><td class='unitcommentparam'></td><td class='unitcommentdesc'><a href='http://www.apache.org/licenses/LICENSE-2.0' target='_blank'>http://www.apache.org/licenses/LICENSE-2.0</a> </td></tr><td class='unitcommentparam'></td><td class='unitcommentdesc'>Unless required by applicable law or agreed to in writing, software </td></tr><td class='unitcommentparam'></td><td class='unitcommentdesc'>distributed under the License is distributed on an "AS IS" BASIS, </td></tr><td class='unitcommentparam'></td><td class='unitcommentdesc'>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. </td></tr><td class='unitcommentparam'></td><td class='unitcommentdesc'>See the License for the specific language governing permissions and </td></tr><td class='unitcommentparam'></td><td class='unitcommentdesc'>limitations under the License. </td></tr><tr><td class='unitcommentparam'>File:</td><td class='unitcommentdesc'>SqlGetTables </td></tr><tr><td class='unitcommentparam'>Author(s):</td><td class='unitcommentdesc'>pjudge </td></tr><tr><td class='unitcommentparam'>Created:</td><td class='unitcommentdesc'>Wed Jul 24 13:45:14 EDT 2013 </td></tr></tbody></table>
+                	</span>
+                	<br>
+                </div>
+            </td>
+            <td>
+                <div class="container_logo_google">
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    
+    <br>
+    <br>
+    <div class="TableHeadingColor">
+        <span id="method_summary" class="expand_arrow expandButtonShow HeightFixIE">
+        </span>
+        <span>
+            <font size="+2">
+                <b>Method Summary</b>
+            </font>
+        </span>
+    </div>
+    <table border="0" class="table_content table_content_summary method_summary">
+        <tbody>
+            <tr class="TableSubHeadingColor">
+                <th align="left"></th>
+                <th align="left">Options</th>
+                <th align="left">Name</th>
+                <th align="left">Purpose</th>
+            </tr>
+            <tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft STATIC">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         ROWID <a href='#020010opNYZnB13qw24WkguULJhQ=='> AddColumnSchema (character, integer, character, CTypeEnum)</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         ROWID <a href='#020010U6Yxc+Ydq3i1Hz9x6PRAmQ=='> AddColumnSchema (integer, character, CTypeEnum)</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+          <a href='#020010ZaZYtIYsjuxRPp9p/82OOg=='> ClearColumnSchema ()</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft STATIC">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+          <a href='#020010rNmvM4anbL/zGV7+RoQgXA=='> ClearColumnSchema (character)</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+          <a href='#020010nbzVWzByaYG79v84yfH8Iw=='> CloseCursor ()</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         CHARACTER <a href='#0200102jbnQl5pRZOuP4HwY4DQww=='> ColumnDataToCharacter (memptr, SqlTypeEnum)</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         LONGCHAR <a href='#020010fw7DEfj7HSe+UH8y05l7ZA=='> ColumnDataToClob (memptr, SqlTypeEnum)</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         DATE <a href='#020010Pw8z8MMlIRToevfMODj20Q=='> ColumnDataToDate (memptr, SqlTypeEnum)</a>
+    </font>
+  </td>
+  <td class="cell">
+     
+/** Returns a date represented by a SQL_TYPE_DATE structure.
+
+@param  memptr   A data structure containing the a SQL_TYPE_DATE structure
+@param  SqlTypeEnum The SQL type of the data.
+@return date    The ABL date represented by the input structure. */ <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         DATETIME <a href='#020010locVGv7qXzGU9yyW+Gca9A=='> ColumnDataToDateTime (memptr, SqlTypeEnum)</a>
+    </font>
+  </td>
+  <td class="cell">
+     
+/** Returns a datetime represented by a SQL_TYPE_TIMESTAMP structure.
+
+@param  memptr   A data structure containing the a SQL_TYPE_TIMESTAMP structure
+@param  SqlTypeEnum The SQL type of the data.
+@return datetime    The ABL date represented by the input structure. */ <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         DECIMAL <a href='#0200106oTCpa9f6BGzzvAy7nGtAg=='> ColumnDataToDecimal (memptr, SqlTypeEnum)</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         CHARACTER <a href='#020010PG8/z8/csE8UCFZCKq3D4w=='> ColumnDataToGuid (memptr, SqlTypeEnum)</a>
+    </font>
+  </td>
+  <td class="cell">
+     
+/** Returns a GUID represented by a SQL_GUID structure.
+
+@param  memptr   A data structure containing the a SQL_TYPE_DATE structure
+@param  SqlTypeEnum The SQL type of the data.
+@return date    The ABL date represented by the input structure. */ <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         INTEGER <a href='#020010lA7Dvn3sVI+MLaZv0ZtnsQ=='> ColumnDataToInt (memptr, SqlTypeEnum)</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         INT64 <a href='#020010iQmh1Fs4fRzDZ/EuNLhUwg=='> ColumnDataToInt64 (memptr, SqlTypeEnum)</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         LOGICAL <a href='#020010LVWfBFM7uKtc15Bevp/SAQ=='> ColumnDataToLogical (memptr, SqlTypeEnum)</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         DECIMAL <a href='#020010ZMNi7HDxke9JO9nmbCpqmg=='> ColumnDataToNumeric (memptr, SqlTypeEnum)</a>
+    </font>
+  </td>
+  <td class="cell">
+     
+/** Returns a GUID represented by a SQL_NUMERIC structure.
+
+@param  memptr   A data structure containing the a SQL_TYPE_DATE structure
+@param  SqlTypeEnum The SQL type of the data.
+@return date    The ABL date represented by the input structure. */ <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         INTEGER <a href='#0200102HfPcPHHIdu/9NV7NKrg5A=='> ColumnDataToTime (memptr, SqlTypeEnum)</a>
+    </font>
+  </td>
+  <td class="cell">
+     
+/** Returns the seconds since midnight (since ABL has no built-in TIME data type).
+This behaviour emulates the TIME built-in function.
+
+@param memptr   A data structure containing the a SQL_TYPE_TIME structure
+@param  SqlTypeEnum The SQL type of the data.
+@return integer Number of seconds since midnight based on the input */ <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>+</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+          <a href='#020010AE7PGHubfs4rhbKVe6bjsA=='> Destroy ()</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft STATIC">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>+</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+          <a href='#020010HMYo64ey5UgxXUD8afCCVw=='> EmptyColumnSchemaCache ()</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+          <a href='#020010Sx6+0DfAYsZBhRTW/MIRFw=='> FieldReadJsonEventHandler (Object, FieldReadEventArgs)</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+          <a href='#020010Qkto7erX8vOuslRB+BREDQ=='> FieldReadTableEventHandler (Object, FieldReadEventArgs)</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         Progress.Json.ObjectModel.JsonArray <a href='#020010uVNb9Lzkg4q7+5gpWtVnsw=='> GetColumnSchema ()</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft STATIC">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>+</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         Progress.Json.ObjectModel.JsonArray <a href='#020010FxNEzwi2q8dQalv+Ig3ZrA=='> GetColumnSchema (character)</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>+</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         Progress.Json.ObjectModel.JsonObject <a href='#020010GeM/zylUBsALn3Nb9c7NDw=='> GetSingleTable (character, character)</a>
+    </font>
+  </td>
+  <td class="cell">
+     
+/** Retrieves table schema information for a single table.
+
+@param character The table name.
+@param character The type of additional schema to return. 'Column' for example.
+@return JsonObject A json object containing the schema  */ <br> <i>  </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>+</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         Progress.Json.ObjectModel.JsonObject <a href='#020010PzjYeSbDlZYzCnIf4+hm/A=='> GetTables ()</a>
+    </font>
+  </td>
+  <td class="cell">
+     
+/** Retrieves table schema information.
+
+@return JsonObject A json object containing the schema  */ <br> <i>  </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>+</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         Progress.Json.ObjectModel.JsonObject <a href='#020010MRW/Iq+SHDIAPO/TvtpK/Q=='> GetTables (character)</a>
+    </font>
+  </td>
+  <td class="cell">
+     
+/** Retrieves table schema information.
+
+@param character The type of additional schema to return. 'Column' for example.
+@return JsonObject A json object containing the schema  */ <br> <i>  </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>+</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         Progress.Json.ObjectModel.JsonObject <a href='#020010HnMDJt6ZBL5ocZBKLz58Kw=='> GetTables (character, character, character, character, character)</a>
+    </font>
+  </td>
+  <td class="cell">
+     
+/** Returns table metadata/schema
+
+@param character The catalog for selection
+@param character The schema for selection
+@param character The table for selection
+@return JsonObject A json object containing the schema  */ <br> <i>  </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>+</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+          <a href='#020010Vvrm/wci7LOdfvnHa3QVsg=='> Initialize ()</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+          <a href='#020010tLVRszjqkqtwE38RR8s2aw=='> LoadResultSet (handle)</a>
+    </font>
+  </td>
+  <td class="cell">
+     
+/** A default (helper) method for populating a table with a result set
+
+@param handle The buffer handle into which the result set is stored */ <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+          <a href='#020010MyEpmftLqXy3uC6ouPgyiw=='> LoadResultSet (JsonConstruct)</a>
+    </font>
+  </td>
+  <td class="cell">
+     
+/** A default (helper) method for populating a table with a result set
+
+@param Object The buffer handle into which the result set is stored */ <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+          <a href='#020010g8jbr03k+yGCU/feMDhOqg=='> MapColumns ()</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+          <a href='#020010atjiQULK9+p7Ant6qrNjdQ=='> RowReadCompleteEventHandler (Object, RowReadEventArgs)</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i>  </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+          <a href='#020010CHrdMsJzonauw43YhMpGUw=='> RowReadCompleteJsonEventHandler (Object, RowReadEventArgs)</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+          <a href='#020010RQJptOXhFOpHtn3+b4cevg=='> RowReadCompleteTableEventHandler (Object, RowReadEventArgs)</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+          <a href='#020010entN30w6KWXh9peH1qSwUA=='> RowReadJsonEventHandler (Object, RowReadEventArgs)</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+          <a href='#02001043Bb5wO2wrweWAsq6/r1aQ=='> RowReadTableEventHandler (Object, RowReadEventArgs)</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+    
+        </tbody>
+    </table>
+    
+    
+    <br>
+    <div class="TableHeadingColor">
+        <span id="constructor_summary" class="expand_arrow expandButtonShow HeightFixIE">
+        </span>
+        <span>
+            <font size="+2">
+                <b>Constructor Summary</b>
+            </font>
+        </span>
+    </div>
+    <table border="0" class="table_content table_content_summary constructor_summary">
+        <tbody>
+            <tr class="TableSubHeadingColor">
+                <th align="left"></th>
+                <th align="left">Options</th>
+                <th align="left">Name</th>
+                <th align="left">Purpose</th>
+            </tr>
+            <tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft STATIC">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font></font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+          <a href='#020010gt+Hh9WIT0NiR48+NRDVcQ=='> SqlGetTables ()</a>
+    </font>
+  </td>
+  <td class="cell">
+     
+/** TEMPLATE
+/* Doc at */
+procedure  external "{&ODBC-DLL}" persistent.
+define input        parameter StatementHandle   as long.        /* [Input] SQLHSTMT:SQLHANDLE */
+define return       parameter returnValue       as short.       /* [Return] SQLRETURN */
+end procedure.
+**/ <br> <i>  </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>+</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+          <a href='#020010II8n8FOiI7aofDtayTLeLQ=='> SqlGetTables (int64, ODBCConnection)</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i>  </i>
+  </td>
+</tr>
+    
+        </tbody>
+    </table>
+    
+    
+    <br>
+    <div class="TableHeadingColor">
+        <span id="event_summary" class="expand_arrow expandButtonShow HeightFixIE">
+        </span>
+        <span>
+            <font size="+2">
+                <b>Event Summary</b>
+            </font>
+        </span>
+    </div>
+    <table border="0" class="table_content table_content_summary event_summary">
+        <tbody>
+            <tr class="TableSubHeadingColor">
+                <th align="left"></th>
+                <th align="left">Options</th>
+                <th align="left">Name</th>
+                <th align="left">Purpose</th>
+            </tr>
+            <tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+          <a href='#020010E6kMKDSI8YSFeP0lthnp6g=='> FieldRead (Object, FieldReadEventArgs)</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+          <a href='#020010NlHV33XBsaeGBfRZK+fQ/w=='> RowRead (Object, RowReadEventArgs)</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+          <a href='#020010gEifEaLZYarOoaZmbXrRGg=='> RowReadComplete (Object, RowReadEventArgs)</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+    
+        </tbody>
+    </table>
+    
+    
+    <br>
+    <div class="TableHeadingColor">
+        <span id="property_summary" class="expand_arrow expandButtonShow HeightFixIE">
+        </span>
+        <span>
+            <font size="+2">
+                <b>Property Summary</b>
+            </font>
+        </span>
+    </div>
+    <table border="0" class="table_content table_content_summary property_summary">
+        <tbody>
+            <tr class="TableSubHeadingColor">
+                <th align="left"></th>
+                <th align="left">Options</th>
+                <th align="left">Name</th>
+                <th align="left">Purpose</th>
+            </tr>
+            <tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>+</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         OpenEdge.Core.ServerConnection.ODBCConnection <a href='#020010wxoxBJkvOHXyEDyW3iqmnw=='> ODBCConnection</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         CHARACTER <a href='#0200104GHbYvrNdyJ4YVahUKzkUw=='> SQL_ALL_CATALOGS</a>
+    </font>
+  </td>
+  <td class="cell">
+     
+/* QUERY CONSTANTS */ <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         CHARACTER <a href='#020010zdE5H1NWTQDhHHV+wrHDRg=='> SQL_ALL_SCHEMAS</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         CHARACTER <a href='#020010LmbGmRCmxYINMfut4o23Fg=='> SQL_ALL_TABLE_TYPES</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         INTEGER <a href='#020010ZePNJ8xxKfjwmyCCkKktog=='> SQL_FALSE</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         INTEGER <a href='#020010tORbPDXhxMAahSgMBqjufw=='> SQL_MAX_COLUMN_NAME_LEN</a>
+    </font>
+  </td>
+  <td class="cell">
+     
+/* SIZES */ <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         INTEGER <a href='#020010pw0he9TdP1jlX6QQOq0ZYw=='> SQL_NO_NULLS</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         INTEGER <a href='#020010sdp/fWpF+WlxPhok5KkTJw=='> SQL_NO_TOTAL</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         INTEGER <a href='#020010+AbJY+y0a9PdTCXFCB//VA=='> SQL_NULL_DATA</a>
+    </font>
+  </td>
+  <td class="cell">
+     
+/* SqlGetData return values */ <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         INTEGER <a href='#0200102PIWVTWACIThpH832CttKg=='> SQL_NULLABLE</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         INTEGER <a href='#0200109xXWWWr6J6EnLIalYgnYaQ=='> SQL_NULLABLE_UNKNOWN</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         INTEGER <a href='#020010nQGIQcKgRW0aH4sw6wnbCQ=='> SQL_PRED_BASIC</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         INTEGER <a href='#0200102yTEBjuOCndqIWHTToSFdg=='> SQL_PRED_CHAR</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         INTEGER <a href='#020010YgH/sDZTHPRK7aqEdAFnjQ=='> SQL_PRED_NONE</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         INTEGER <a href='#020010phTpzqqf0VkpFBbwep1+1w=='> SQL_PRED_SEARCHABLE</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         INTEGER <a href='#020010P7iEtYX4VbPy2PW3KNYtsg=='> SQL_SEARCHABLE</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         INTEGER <a href='#020010BvrB66Xqby0iC+j9DFk63g=='> SQL_TRUE</a>
+    </font>
+  </td>
+  <td class="cell">
+     
+/*------------------------------------------------------------------------
+File        : SqlStatementConstants.i
+Purpose     : Constant values for SQL
+Author(s)   : pjudge
+Created     : Mon Jul 15 10:53:52 EDT 2013
+Notes       :
+----------------------------------------------------------------------*/ <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         SqlCommonFunctions <a href='#020010h2DvP5F5RMDWcEXeRnV4jg=='> SqlCommonLib</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>+</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         INT64 <a href='#020010P8iqrkY7Pn/n8qOroI5ZGQ=='> StatementHandle</a>
+    </font>
+  </td>
+  <td class="cell">
+      <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+<tr class="table_content overview_row">
+  <td align="left" valign="top" class="img_col cell cellleft ">
+  </td>
+  <td align="left" valign="top" class="option_col cell">
+    <font>#</font>
+    <font></font>
+    <font></font>
+  </td>
+  <td class="signature_col cell">
+    <font>
+         CHARACTER <a href='#020010T0wP60vVHRRYqLGvbegSTw=='> StatementId</a>
+    </font>
+  </td>
+  <td class="cell">
+     
+/** An unique identifier of a particular statement. Typically a hash of the statement or some other named identifier,
+but not the statement handle, which is transient.  */ <br> <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+  </td>
+</tr>
+    
+        </tbody>
+    </table>
+    
+    <br>
+    <br>
+    
+    <div class="TableHeadingColor cell">
+        <span id="method_detail" class="expand_arrow expandButtonShow HeightFixIE">
+        </span>
+        <span>
+            <font size="+2">
+                <b>Method Detail</b>
+            </font>
+        </span>
+    </div>
+    <table border="0" class="table_content table_content_details method_detail">
+        <tbody>
+            <tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010opNYZnB13qw24WkguULJhQ==" href="#Top">Top</a>
+                <a name=" ROWID <a href='#020010opNYZnB13qw24WkguULJhQ=='> AddColumnSchema (character, integer, character, CTypeEnum)</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED ROWID <a href='#020010opNYZnB13qw24WkguULJhQ=='> AddColumnSchema (character, integer, character, CTypeEnum)</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_STATIC" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  
+                  <tr>
+    <td class="document_detail_parameter">
+        <i>pcStatementId</i>
+    </td>
+    <td>
+       CHARACTER
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i>piColNum</i>
+    </td>
+    <td>
+       INTEGER
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i>pcName</i>
+    </td>
+    <td>
+       CHARACTER
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i>poCType</i>
+    </td>
+    <td>
+       <a href='OpenEdge.Data.ODBC.CTypeEnum.html'>OpenEdge.Data.ODBC.CTypeEnum</a>
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      ROWID 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010U6Yxc+Ydq3i1Hz9x6PRAmQ==" href="#Top">Top</a>
+                <a name=" ROWID <a href='#020010U6Yxc+Ydq3i1Hz9x6PRAmQ=='> AddColumnSchema (integer, character, CTypeEnum)</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED ROWID <a href='#020010U6Yxc+Ydq3i1Hz9x6PRAmQ=='> AddColumnSchema (integer, character, CTypeEnum)</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  
+                  <tr>
+    <td class="document_detail_parameter">
+        <i>piColNum</i>
+    </td>
+    <td>
+       INTEGER
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i>pcName</i>
+    </td>
+    <td>
+       CHARACTER
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i>poCType</i>
+    </td>
+    <td>
+       <a href='OpenEdge.Data.ODBC.CTypeEnum.html'>OpenEdge.Data.ODBC.CTypeEnum</a>
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      ROWID 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010ZaZYtIYsjuxRPp9p/82OOg==" href="#Top">Top</a>
+                <a name="  <a href='#020010ZaZYtIYsjuxRPp9p/82OOg=='> ClearColumnSchema ()</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED  <a href='#020010ZaZYtIYsjuxRPp9p/82OOg=='> ClearColumnSchema ()</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  <!--
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  -->
+                  
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010rNmvM4anbL/zGV7+RoQgXA==" href="#Top">Top</a>
+                <a name="  <a href='#020010rNmvM4anbL/zGV7+RoQgXA=='> ClearColumnSchema (character)</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED  <a href='#020010rNmvM4anbL/zGV7+RoQgXA=='> ClearColumnSchema (character)</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_STATIC" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  
+                  <tr>
+    <td class="document_detail_parameter">
+        <i>pcStatementId</i>
+    </td>
+    <td>
+       CHARACTER
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010nbzVWzByaYG79v84yfH8Iw==" href="#Top">Top</a>
+                <a name="  <a href='#020010nbzVWzByaYG79v84yfH8Iw=='> CloseCursor ()</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED  <a href='#020010nbzVWzByaYG79v84yfH8Iw=='> CloseCursor ()</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  <!--
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  -->
+                  
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="0200102jbnQl5pRZOuP4HwY4DQww==" href="#Top">Top</a>
+                <a name=" CHARACTER <a href='#0200102jbnQl5pRZOuP4HwY4DQww=='> ColumnDataToCharacter (memptr, SqlTypeEnum)</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED CHARACTER <a href='#0200102jbnQl5pRZOuP4HwY4DQww=='> ColumnDataToCharacter (memptr, SqlTypeEnum)</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  
+                  <tr>
+    <td class="document_detail_parameter">
+        <i>pmColumnData</i>
+    </td>
+    <td>
+       MEMPTR
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i>poSqlType</i>
+    </td>
+    <td>
+       SqlTypeEnum
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      CHARACTER 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010fw7DEfj7HSe+UH8y05l7ZA==" href="#Top">Top</a>
+                <a name=" LONGCHAR <a href='#020010fw7DEfj7HSe+UH8y05l7ZA=='> ColumnDataToClob (memptr, SqlTypeEnum)</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED LONGCHAR <a href='#020010fw7DEfj7HSe+UH8y05l7ZA=='> ColumnDataToClob (memptr, SqlTypeEnum)</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  
+                  <tr>
+    <td class="document_detail_parameter">
+        <i>pmColumnData</i>
+    </td>
+    <td>
+       MEMPTR
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i>poSqlType</i>
+    </td>
+    <td>
+       SqlTypeEnum
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      LONGCHAR 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010Pw8z8MMlIRToevfMODj20Q==" href="#Top">Top</a>
+                <a name=" DATE <a href='#020010Pw8z8MMlIRToevfMODj20Q=='> ColumnDataToDate (memptr, SqlTypeEnum)</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED DATE <a href='#020010Pw8z8MMlIRToevfMODj20Q=='> ColumnDataToDate (memptr, SqlTypeEnum)</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'><tr><td class='paramname'>Purpose: </td><td class='paramdesc'>Returns a date represented by a SQL_TYPE_DATE structure. </td></tr></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  
+                  <tr>
+    <td class="document_detail_parameter">
+        <i>pmColumnValue</i>
+    </td>
+    <td>
+       MEMPTR
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i>poSqlType</i>
+    </td>
+    <td>
+       SqlTypeEnum
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      DATE 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        date    The ABL date represented by the input structure.
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010locVGv7qXzGU9yyW+Gca9A==" href="#Top">Top</a>
+                <a name=" DATETIME <a href='#020010locVGv7qXzGU9yyW+Gca9A=='> ColumnDataToDateTime (memptr, SqlTypeEnum)</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED DATETIME <a href='#020010locVGv7qXzGU9yyW+Gca9A=='> ColumnDataToDateTime (memptr, SqlTypeEnum)</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'><tr><td class='paramname'>Purpose: </td><td class='paramdesc'>Returns a datetime represented by a SQL_TYPE_TIMESTAMP structure. </td></tr></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  
+                  <tr>
+    <td class="document_detail_parameter">
+        <i>pmColumnValue</i>
+    </td>
+    <td>
+       MEMPTR
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i>poSqlType</i>
+    </td>
+    <td>
+       SqlTypeEnum
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      DATETIME 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        datetime    The ABL date represented by the input structure.
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="0200106oTCpa9f6BGzzvAy7nGtAg==" href="#Top">Top</a>
+                <a name=" DECIMAL <a href='#0200106oTCpa9f6BGzzvAy7nGtAg=='> ColumnDataToDecimal (memptr, SqlTypeEnum)</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED DECIMAL <a href='#0200106oTCpa9f6BGzzvAy7nGtAg=='> ColumnDataToDecimal (memptr, SqlTypeEnum)</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  
+                  <tr>
+    <td class="document_detail_parameter">
+        <i>pmColumnData</i>
+    </td>
+    <td>
+       MEMPTR
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i>poSqlType</i>
+    </td>
+    <td>
+       SqlTypeEnum
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      DECIMAL 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010PG8/z8/csE8UCFZCKq3D4w==" href="#Top">Top</a>
+                <a name=" CHARACTER <a href='#020010PG8/z8/csE8UCFZCKq3D4w=='> ColumnDataToGuid (memptr, SqlTypeEnum)</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED CHARACTER <a href='#020010PG8/z8/csE8UCFZCKq3D4w=='> ColumnDataToGuid (memptr, SqlTypeEnum)</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'><tr><td class='paramname'>Purpose: </td><td class='paramdesc'>Returns a GUID represented by a SQL_GUID structure. </td></tr></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  
+                  <tr>
+    <td class="document_detail_parameter">
+        <i>pmColumnValue</i>
+    </td>
+    <td>
+       MEMPTR
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i>poSqlType</i>
+    </td>
+    <td>
+       SqlTypeEnum
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      CHARACTER 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        date    The ABL date represented by the input structure.
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010lA7Dvn3sVI+MLaZv0ZtnsQ==" href="#Top">Top</a>
+                <a name=" INTEGER <a href='#020010lA7Dvn3sVI+MLaZv0ZtnsQ=='> ColumnDataToInt (memptr, SqlTypeEnum)</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED INTEGER <a href='#020010lA7Dvn3sVI+MLaZv0ZtnsQ=='> ColumnDataToInt (memptr, SqlTypeEnum)</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  
+                  <tr>
+    <td class="document_detail_parameter">
+        <i>pmColumnData</i>
+    </td>
+    <td>
+       MEMPTR
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i>poSqlType</i>
+    </td>
+    <td>
+       SqlTypeEnum
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      INTEGER 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010iQmh1Fs4fRzDZ/EuNLhUwg==" href="#Top">Top</a>
+                <a name=" INT64 <a href='#020010iQmh1Fs4fRzDZ/EuNLhUwg=='> ColumnDataToInt64 (memptr, SqlTypeEnum)</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED INT64 <a href='#020010iQmh1Fs4fRzDZ/EuNLhUwg=='> ColumnDataToInt64 (memptr, SqlTypeEnum)</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  
+                  <tr>
+    <td class="document_detail_parameter">
+        <i>pmColumnData</i>
+    </td>
+    <td>
+       MEMPTR
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i>poSqlType</i>
+    </td>
+    <td>
+       SqlTypeEnum
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      INT64 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010LVWfBFM7uKtc15Bevp/SAQ==" href="#Top">Top</a>
+                <a name=" LOGICAL <a href='#020010LVWfBFM7uKtc15Bevp/SAQ=='> ColumnDataToLogical (memptr, SqlTypeEnum)</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED LOGICAL <a href='#020010LVWfBFM7uKtc15Bevp/SAQ=='> ColumnDataToLogical (memptr, SqlTypeEnum)</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  
+                  <tr>
+    <td class="document_detail_parameter">
+        <i>pmColumnData</i>
+    </td>
+    <td>
+       MEMPTR
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i>poSqlType</i>
+    </td>
+    <td>
+       SqlTypeEnum
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      LOGICAL 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010ZMNi7HDxke9JO9nmbCpqmg==" href="#Top">Top</a>
+                <a name=" DECIMAL <a href='#020010ZMNi7HDxke9JO9nmbCpqmg=='> ColumnDataToNumeric (memptr, SqlTypeEnum)</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED DECIMAL <a href='#020010ZMNi7HDxke9JO9nmbCpqmg=='> ColumnDataToNumeric (memptr, SqlTypeEnum)</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'><tr><td class='paramname'>Purpose: </td><td class='paramdesc'>Returns a GUID represented by a SQL_NUMERIC structure. </td></tr></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  
+                  <tr>
+    <td class="document_detail_parameter">
+        <i>pmColumnValue</i>
+    </td>
+    <td>
+       MEMPTR
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i>poSqlType</i>
+    </td>
+    <td>
+       SqlTypeEnum
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      DECIMAL 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        date    The ABL date represented by the input structure.
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="0200102HfPcPHHIdu/9NV7NKrg5A==" href="#Top">Top</a>
+                <a name=" INTEGER <a href='#0200102HfPcPHHIdu/9NV7NKrg5A=='> ColumnDataToTime (memptr, SqlTypeEnum)</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED INTEGER <a href='#0200102HfPcPHHIdu/9NV7NKrg5A=='> ColumnDataToTime (memptr, SqlTypeEnum)</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'><tr><td class='paramname'>Purpose: </td><td class='paramdesc'>Returns the seconds since midnight (since ABL has no built-in TIME data type). </td></tr><td class='paramname'></td><td class='paramdesc'>This behaviour emulates the TIME built-in function. </td></tr></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  
+                  <tr>
+    <td class="document_detail_parameter">
+        <i>pmColumnValue</i>
+    </td>
+    <td>
+       MEMPTR
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i>poSqlType</i>
+    </td>
+    <td>
+       SqlTypeEnum
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      INTEGER 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        integer Number of seconds since midnight based on the input
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010AE7PGHubfs4rhbKVe6bjsA==" href="#Top">Top</a>
+                <a name="  <a href='#020010AE7PGHubfs4rhbKVe6bjsA=='> Destroy ()</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PUBLIC  <a href='#020010AE7PGHubfs4rhbKVe6bjsA=='> Destroy ()</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  <!--
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  -->
+                  
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010HMYo64ey5UgxXUD8afCCVw==" href="#Top">Top</a>
+                <a name="  <a href='#020010HMYo64ey5UgxXUD8afCCVw=='> EmptyColumnSchemaCache ()</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PUBLIC  <a href='#020010HMYo64ey5UgxXUD8afCCVw=='> EmptyColumnSchemaCache ()</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_STATIC" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  <!--
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  -->
+                  
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010Sx6+0DfAYsZBhRTW/MIRFw==" href="#Top">Top</a>
+                <a name="  <a href='#020010Sx6+0DfAYsZBhRTW/MIRFw=='> FieldReadJsonEventHandler (Object, FieldReadEventArgs)</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED  <a href='#020010Sx6+0DfAYsZBhRTW/MIRFw=='> FieldReadJsonEventHandler (Object, FieldReadEventArgs)</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  
+                  <tr>
+    <td class="document_detail_parameter">
+        <i>poSender</i>
+    </td>
+    <td>
+       Progress.Lang.Object
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i>poEventArgs</i>
+    </td>
+    <td>
+       FieldReadEventArgs
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010Qkto7erX8vOuslRB+BREDQ==" href="#Top">Top</a>
+                <a name="  <a href='#020010Qkto7erX8vOuslRB+BREDQ=='> FieldReadTableEventHandler (Object, FieldReadEventArgs)</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED  <a href='#020010Qkto7erX8vOuslRB+BREDQ=='> FieldReadTableEventHandler (Object, FieldReadEventArgs)</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  
+                  <tr>
+    <td class="document_detail_parameter">
+        <i>poSender</i>
+    </td>
+    <td>
+       Progress.Lang.Object
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i>poEventArgs</i>
+    </td>
+    <td>
+       FieldReadEventArgs
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010uVNb9Lzkg4q7+5gpWtVnsw==" href="#Top">Top</a>
+                <a name=" Progress.Json.ObjectModel.JsonArray <a href='#020010uVNb9Lzkg4q7+5gpWtVnsw=='> GetColumnSchema ()</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED Progress.Json.ObjectModel.JsonArray <a href='#020010uVNb9Lzkg4q7+5gpWtVnsw=='> GetColumnSchema ()</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  <!--
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  -->
+                  <tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      Progress.Json.ObjectModel.JsonArray 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010FxNEzwi2q8dQalv+Ig3ZrA==" href="#Top">Top</a>
+                <a name=" Progress.Json.ObjectModel.JsonArray <a href='#020010FxNEzwi2q8dQalv+Ig3ZrA=='> GetColumnSchema (character)</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PUBLIC Progress.Json.ObjectModel.JsonArray <a href='#020010FxNEzwi2q8dQalv+Ig3ZrA=='> GetColumnSchema (character)</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_STATIC" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  
+                  <tr>
+    <td class="document_detail_parameter">
+        <i>pcStatementId</i>
+    </td>
+    <td>
+       CHARACTER
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      Progress.Json.ObjectModel.JsonArray 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010GeM/zylUBsALn3Nb9c7NDw==" href="#Top">Top</a>
+                <a name=" Progress.Json.ObjectModel.JsonObject <a href='#020010GeM/zylUBsALn3Nb9c7NDw=='> GetSingleTable (character, character)</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PUBLIC Progress.Json.ObjectModel.JsonObject <a href='#020010GeM/zylUBsALn3Nb9c7NDw=='> GetSingleTable (character, character)</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i>  </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'><tr><td class='paramname'>Purpose: </td><td class='paramdesc'>Retrieves table schema information for a single table. </td></tr></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  
+                  <tr>
+    <td class="document_detail_parameter">
+        <i>pcTableName</i>
+    </td>
+    <td>
+       CHARACTER
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i>pcChildTypes</i>
+    </td>
+    <td>
+       CHARACTER
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      Progress.Json.ObjectModel.JsonObject 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        JsonObject A json object containing the schema
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010PzjYeSbDlZYzCnIf4+hm/A==" href="#Top">Top</a>
+                <a name=" Progress.Json.ObjectModel.JsonObject <a href='#020010PzjYeSbDlZYzCnIf4+hm/A=='> GetTables ()</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PUBLIC Progress.Json.ObjectModel.JsonObject <a href='#020010PzjYeSbDlZYzCnIf4+hm/A=='> GetTables ()</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i>  </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'><tr><td class='paramname'>Purpose: </td><td class='paramdesc'>Retrieves table schema information. </td></tr></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  <!--
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  -->
+                  <tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      Progress.Json.ObjectModel.JsonObject 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        JsonObject A json object containing the schema
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010MRW/Iq+SHDIAPO/TvtpK/Q==" href="#Top">Top</a>
+                <a name=" Progress.Json.ObjectModel.JsonObject <a href='#020010MRW/Iq+SHDIAPO/TvtpK/Q=='> GetTables (character)</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PUBLIC Progress.Json.ObjectModel.JsonObject <a href='#020010MRW/Iq+SHDIAPO/TvtpK/Q=='> GetTables (character)</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i>  </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'><tr><td class='paramname'>Purpose: </td><td class='paramdesc'>Retrieves table schema information. </td></tr></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  
+                  <tr>
+    <td class="document_detail_parameter">
+        <i>pcChildTypes</i>
+    </td>
+    <td>
+       CHARACTER
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      Progress.Json.ObjectModel.JsonObject 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        JsonObject A json object containing the schema
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010HnMDJt6ZBL5ocZBKLz58Kw==" href="#Top">Top</a>
+                <a name=" Progress.Json.ObjectModel.JsonObject <a href='#020010HnMDJt6ZBL5ocZBKLz58Kw=='> GetTables (character, character, character, character, character)</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PUBLIC Progress.Json.ObjectModel.JsonObject <a href='#020010HnMDJt6ZBL5ocZBKLz58Kw=='> GetTables (character, character, character, character, character)</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i>  </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'><tr><td class='paramname'>Purpose: </td><td class='paramdesc'>Returns table metadata/schema </td></tr></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  
+                  <tr>
+    <td class="document_detail_parameter">
+        <i>pcCatalogName</i>
+    </td>
+    <td>
+       CHARACTER
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i>pcSchemaName</i>
+    </td>
+    <td>
+       CHARACTER
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i>pcTableName</i>
+    </td>
+    <td>
+       CHARACTER
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i>pcTableType</i>
+    </td>
+    <td>
+       CHARACTER
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i>pcChildTypes</i>
+    </td>
+    <td>
+       CHARACTER
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      Progress.Json.ObjectModel.JsonObject 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        JsonObject A json object containing the schema
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010Vvrm/wci7LOdfvnHa3QVsg==" href="#Top">Top</a>
+                <a name="  <a href='#020010Vvrm/wci7LOdfvnHa3QVsg=='> Initialize ()</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PUBLIC  <a href='#020010Vvrm/wci7LOdfvnHa3QVsg=='> Initialize ()</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  <!--
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  -->
+                  
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010tLVRszjqkqtwE38RR8s2aw==" href="#Top">Top</a>
+                <a name="  <a href='#020010tLVRszjqkqtwE38RR8s2aw=='> LoadResultSet (handle)</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED  <a href='#020010tLVRszjqkqtwE38RR8s2aw=='> LoadResultSet (handle)</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'><tr><td class='paramname'>Purpose: </td><td class='paramdesc'>A default (helper) method for populating a table with a result set </td></tr></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  
+                  <tr>
+    <td class="document_detail_parameter">
+        <i>phTargetReference</i>
+    </td>
+    <td>
+       HANDLE
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010MyEpmftLqXy3uC6ouPgyiw==" href="#Top">Top</a>
+                <a name="  <a href='#020010MyEpmftLqXy3uC6ouPgyiw=='> LoadResultSet (JsonConstruct)</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED  <a href='#020010MyEpmftLqXy3uC6ouPgyiw=='> LoadResultSet (JsonConstruct)</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'><tr><td class='paramname'>Purpose: </td><td class='paramdesc'>A default (helper) method for populating a table with a result set </td></tr></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  
+                  <tr>
+    <td class="document_detail_parameter">
+        <i>poTargetReference</i>
+    </td>
+    <td>
+       JsonConstruct
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010g8jbr03k+yGCU/feMDhOqg==" href="#Top">Top</a>
+                <a name="  <a href='#020010g8jbr03k+yGCU/feMDhOqg=='> MapColumns ()</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED  <a href='#020010g8jbr03k+yGCU/feMDhOqg=='> MapColumns ()</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  <!--
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  -->
+                  
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010atjiQULK9+p7Ant6qrNjdQ==" href="#Top">Top</a>
+                <a name="  <a href='#020010atjiQULK9+p7Ant6qrNjdQ=='> RowReadCompleteEventHandler (Object, RowReadEventArgs)</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED  <a href='#020010atjiQULK9+p7Ant6qrNjdQ=='> RowReadCompleteEventHandler (Object, RowReadEventArgs)</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i>  </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  
+                  <tr>
+    <td class="document_detail_parameter">
+        <i>poSender</i>
+    </td>
+    <td>
+       Progress.Lang.Object
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i>poEventArgs</i>
+    </td>
+    <td>
+       <a href='OpenEdge.Data.ODBC.RowReadEventArgs.html'>OpenEdge.Data.ODBC.RowReadEventArgs</a>
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010CHrdMsJzonauw43YhMpGUw==" href="#Top">Top</a>
+                <a name="  <a href='#020010CHrdMsJzonauw43YhMpGUw=='> RowReadCompleteJsonEventHandler (Object, RowReadEventArgs)</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED  <a href='#020010CHrdMsJzonauw43YhMpGUw=='> RowReadCompleteJsonEventHandler (Object, RowReadEventArgs)</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  
+                  <tr>
+    <td class="document_detail_parameter">
+        <i>poSender</i>
+    </td>
+    <td>
+       Progress.Lang.Object
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i>poEventArgs</i>
+    </td>
+    <td>
+       <a href='OpenEdge.Data.ODBC.RowReadEventArgs.html'>OpenEdge.Data.ODBC.RowReadEventArgs</a>
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010RQJptOXhFOpHtn3+b4cevg==" href="#Top">Top</a>
+                <a name="  <a href='#020010RQJptOXhFOpHtn3+b4cevg=='> RowReadCompleteTableEventHandler (Object, RowReadEventArgs)</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED  <a href='#020010RQJptOXhFOpHtn3+b4cevg=='> RowReadCompleteTableEventHandler (Object, RowReadEventArgs)</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  
+                  <tr>
+    <td class="document_detail_parameter">
+        <i>poSender</i>
+    </td>
+    <td>
+       Progress.Lang.Object
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i>poEventArgs</i>
+    </td>
+    <td>
+       <a href='OpenEdge.Data.ODBC.RowReadEventArgs.html'>OpenEdge.Data.ODBC.RowReadEventArgs</a>
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010entN30w6KWXh9peH1qSwUA==" href="#Top">Top</a>
+                <a name="  <a href='#020010entN30w6KWXh9peH1qSwUA=='> RowReadJsonEventHandler (Object, RowReadEventArgs)</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED  <a href='#020010entN30w6KWXh9peH1qSwUA=='> RowReadJsonEventHandler (Object, RowReadEventArgs)</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  
+                  <tr>
+    <td class="document_detail_parameter">
+        <i>poSender</i>
+    </td>
+    <td>
+       Progress.Lang.Object
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i>poEventArgs</i>
+    </td>
+    <td>
+       <a href='OpenEdge.Data.ODBC.RowReadEventArgs.html'>OpenEdge.Data.ODBC.RowReadEventArgs</a>
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="02001043Bb5wO2wrweWAsq6/r1aQ==" href="#Top">Top</a>
+                <a name="  <a href='#02001043Bb5wO2wrweWAsq6/r1aQ=='> RowReadTableEventHandler (Object, RowReadEventArgs)</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED  <a href='#02001043Bb5wO2wrweWAsq6/r1aQ=='> RowReadTableEventHandler (Object, RowReadEventArgs)</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  
+                  <tr>
+    <td class="document_detail_parameter">
+        <i>poSender</i>
+    </td>
+    <td>
+       Progress.Lang.Object
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i>poEventArgs</i>
+    </td>
+    <td>
+       <a href='OpenEdge.Data.ODBC.RowReadEventArgs.html'>OpenEdge.Data.ODBC.RowReadEventArgs</a>
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr>
+        </tbody>
+    </table>
+    <br>
+    <br>
+    
+    
+    <div class="TableHeadingColor cell">
+        <span id="constructor_detail" class="expand_arrow expandButtonShow HeightFixIE">
+        </span>
+        <span>
+            <font size="+2">
+                <b>Constructor Detail</b>
+            </font>
+        </span>
+    </div>
+    <table border="0" class="table_content table_content_details constructor_detail">
+        <tbody>
+            <tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010gt+Hh9WIT0NiR48+NRDVcQ==" href="#Top">Top</a>
+                <a name="  <a href='#020010gt+Hh9WIT0NiR48+NRDVcQ=='> SqlGetTables ()</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">STATIC  <a href='#020010gt+Hh9WIT0NiR48+NRDVcQ=='> SqlGetTables ()</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_STATIC" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i>  </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'><tr><td class='paramname'>Purpose: </td><td class='paramdesc'>TEMPLATE </td></tr><td class='paramname'></td><td class='paramdesc'>/* Doc at </td></tr><td class='paramname'></td><td class='paramdesc'>procedure  external "{&ODBC-DLL}" persistent. </td></tr><td class='paramname'></td><td class='paramdesc'>define input        parameter StatementHandle   as long.        /* [Input] SQLHSTMT:SQLHANDLE </td></tr><td class='paramname'></td><td class='paramdesc'>define return       parameter returnValue       as short.       /* [Return] SQLRETURN </td></tr><td class='paramname'></td><td class='paramdesc'>end procedure. </td></tr></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  <!--
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  -->
+                  
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010II8n8FOiI7aofDtayTLeLQ==" href="#Top">Top</a>
+                <a name="  <a href='#020010II8n8FOiI7aofDtayTLeLQ=='> SqlGetTables (int64, ODBCConnection)</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PUBLIC  <a href='#020010II8n8FOiI7aofDtayTLeLQ=='> SqlGetTables (int64, ODBCConnection)</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i>  </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  
+                  <tr>
+    <td class="document_detail_parameter">
+        <i>piStmt</i>
+    </td>
+    <td>
+       INT64
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i>poConnection</i>
+    </td>
+    <td>
+       <a href='OpenEdge.Core.ServerConnection.ODBCConnection.html'>OpenEdge.Core.ServerConnection.ODBCConnection</a>
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr>
+        </tbody>
+    </table>
+    <br>
+    <br>
+    
+    
+    <div class="TableHeadingColor cell">
+        <span id="event_detail" class="expand_arrow expandButtonShow HeightFixIE">
+        </span>
+        <span>
+            <font size="+2">
+                <b>Event Detail</b>
+            </font>
+        </span>
+    </div>
+    <table border="0" class="table_content table_content_details event_detail">
+        <tbody>
+            <tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010E6kMKDSI8YSFeP0lthnp6g==" href="#Top">Top</a>
+                <a name="  <a href='#020010E6kMKDSI8YSFeP0lthnp6g=='> FieldRead (Object, FieldReadEventArgs)</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED  <a href='#020010E6kMKDSI8YSFeP0lthnp6g=='> FieldRead (Object, FieldReadEventArgs)</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  
+                  <tr>
+    <td class="document_detail_parameter">
+        <i>poSender</i>
+    </td>
+    <td>
+       Progress.Lang.Object
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i>poArgs</i>
+    </td>
+    <td>
+       FieldReadEventArgs
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010NlHV33XBsaeGBfRZK+fQ/w==" href="#Top">Top</a>
+                <a name="  <a href='#020010NlHV33XBsaeGBfRZK+fQ/w=='> RowRead (Object, RowReadEventArgs)</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED  <a href='#020010NlHV33XBsaeGBfRZK+fQ/w=='> RowRead (Object, RowReadEventArgs)</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  
+                  <tr>
+    <td class="document_detail_parameter">
+        <i>poSender</i>
+    </td>
+    <td>
+       Progress.Lang.Object
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i>poArgs</i>
+    </td>
+    <td>
+       <a href='OpenEdge.Data.ODBC.RowReadEventArgs.html'>OpenEdge.Data.ODBC.RowReadEventArgs</a>
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010gEifEaLZYarOoaZmbXrRGg==" href="#Top">Top</a>
+                <a name="  <a href='#020010gEifEaLZYarOoaZmbXrRGg=='> RowReadComplete (Object, RowReadEventArgs)</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED  <a href='#020010gEifEaLZYarOoaZmbXrRGg=='> RowReadComplete (Object, RowReadEventArgs)</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  
+                  <tr>
+    <td class="document_detail_parameter">
+        <i>poSender</i>
+    </td>
+    <td>
+       Progress.Lang.Object
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr><tr>
+    <td class="document_detail_parameter">
+        <i>poArgs</i>
+    </td>
+    <td>
+       <a href='OpenEdge.Data.ODBC.RowReadEventArgs.html'>OpenEdge.Data.ODBC.RowReadEventArgs</a>
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr>
+        </tbody>
+    </table>
+    <br>
+    <br>
+    
+    
+    <div class="TableHeadingColor cell">
+        <span id="property_detail" class="expand_arrow table_content_details expandButtonShow HeightFixIE">
+        </span>
+        <span>
+            <font size="+2">
+                <b>Property Detail</b>
+            </font>
+        </span>
+    </div>
+    <table border="0" class="table_content property_detail">
+        <tbody>
+            <tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010wxoxBJkvOHXyEDyW3iqmnw==" href="#Top">Top</a>
+                <a name=" <a href='OpenEdge.Core.ServerConnection.ODBCConnection.html'>OpenEdge.Core.ServerConnection.ODBCConnection</a> <a href='#020010wxoxBJkvOHXyEDyW3iqmnw=='> ODBCConnection</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PUBLIC <a href='OpenEdge.Core.ServerConnection.ODBCConnection.html'>OpenEdge.Core.ServerConnection.ODBCConnection</a> <a href='#020010wxoxBJkvOHXyEDyW3iqmnw=='> ODBCConnection</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  <!--
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  -->
+                  <tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      <a href='OpenEdge.Core.ServerConnection.ODBCConnection.html'>OpenEdge.Core.ServerConnection.ODBCConnection</a> 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="0200104GHbYvrNdyJ4YVahUKzkUw==" href="#Top">Top</a>
+                <a name=" CHARACTER <a href='#0200104GHbYvrNdyJ4YVahUKzkUw=='> SQL_ALL_CATALOGS</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED CHARACTER <a href='#0200104GHbYvrNdyJ4YVahUKzkUw=='> SQL_ALL_CATALOGS</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'><td class='paramname'></td><td class='paramdesc'>/* QUERY CONSTANTS </td></tr></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  <!--
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  -->
+                  <tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      CHARACTER 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010zdE5H1NWTQDhHHV+wrHDRg==" href="#Top">Top</a>
+                <a name=" CHARACTER <a href='#020010zdE5H1NWTQDhHHV+wrHDRg=='> SQL_ALL_SCHEMAS</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED CHARACTER <a href='#020010zdE5H1NWTQDhHHV+wrHDRg=='> SQL_ALL_SCHEMAS</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  <!--
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  -->
+                  <tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      CHARACTER 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010LmbGmRCmxYINMfut4o23Fg==" href="#Top">Top</a>
+                <a name=" CHARACTER <a href='#020010LmbGmRCmxYINMfut4o23Fg=='> SQL_ALL_TABLE_TYPES</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED CHARACTER <a href='#020010LmbGmRCmxYINMfut4o23Fg=='> SQL_ALL_TABLE_TYPES</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  <!--
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  -->
+                  <tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      CHARACTER 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010ZePNJ8xxKfjwmyCCkKktog==" href="#Top">Top</a>
+                <a name=" INTEGER <a href='#020010ZePNJ8xxKfjwmyCCkKktog=='> SQL_FALSE</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED INTEGER <a href='#020010ZePNJ8xxKfjwmyCCkKktog=='> SQL_FALSE</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  <!--
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  -->
+                  <tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      INTEGER 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010tORbPDXhxMAahSgMBqjufw==" href="#Top">Top</a>
+                <a name=" INTEGER <a href='#020010tORbPDXhxMAahSgMBqjufw=='> SQL_MAX_COLUMN_NAME_LEN</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED INTEGER <a href='#020010tORbPDXhxMAahSgMBqjufw=='> SQL_MAX_COLUMN_NAME_LEN</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'><td class='paramname'></td><td class='paramdesc'>/* SIZES </td></tr></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  <!--
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  -->
+                  <tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      INTEGER 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010pw0he9TdP1jlX6QQOq0ZYw==" href="#Top">Top</a>
+                <a name=" INTEGER <a href='#020010pw0he9TdP1jlX6QQOq0ZYw=='> SQL_NO_NULLS</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED INTEGER <a href='#020010pw0he9TdP1jlX6QQOq0ZYw=='> SQL_NO_NULLS</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  <!--
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  -->
+                  <tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      INTEGER 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010sdp/fWpF+WlxPhok5KkTJw==" href="#Top">Top</a>
+                <a name=" INTEGER <a href='#020010sdp/fWpF+WlxPhok5KkTJw=='> SQL_NO_TOTAL</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED INTEGER <a href='#020010sdp/fWpF+WlxPhok5KkTJw=='> SQL_NO_TOTAL</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  <!--
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  -->
+                  <tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      INTEGER 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010+AbJY+y0a9PdTCXFCB//VA==" href="#Top">Top</a>
+                <a name=" INTEGER <a href='#020010+AbJY+y0a9PdTCXFCB//VA=='> SQL_NULL_DATA</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED INTEGER <a href='#020010+AbJY+y0a9PdTCXFCB//VA=='> SQL_NULL_DATA</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'><td class='paramname'></td><td class='paramdesc'>/* SqlGetData return values </td></tr></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  <!--
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  -->
+                  <tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      INTEGER 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="0200102PIWVTWACIThpH832CttKg==" href="#Top">Top</a>
+                <a name=" INTEGER <a href='#0200102PIWVTWACIThpH832CttKg=='> SQL_NULLABLE</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED INTEGER <a href='#0200102PIWVTWACIThpH832CttKg=='> SQL_NULLABLE</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  <!--
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  -->
+                  <tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      INTEGER 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="0200109xXWWWr6J6EnLIalYgnYaQ==" href="#Top">Top</a>
+                <a name=" INTEGER <a href='#0200109xXWWWr6J6EnLIalYgnYaQ=='> SQL_NULLABLE_UNKNOWN</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED INTEGER <a href='#0200109xXWWWr6J6EnLIalYgnYaQ=='> SQL_NULLABLE_UNKNOWN</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  <!--
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  -->
+                  <tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      INTEGER 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010nQGIQcKgRW0aH4sw6wnbCQ==" href="#Top">Top</a>
+                <a name=" INTEGER <a href='#020010nQGIQcKgRW0aH4sw6wnbCQ=='> SQL_PRED_BASIC</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED INTEGER <a href='#020010nQGIQcKgRW0aH4sw6wnbCQ=='> SQL_PRED_BASIC</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  <!--
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  -->
+                  <tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      INTEGER 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="0200102yTEBjuOCndqIWHTToSFdg==" href="#Top">Top</a>
+                <a name=" INTEGER <a href='#0200102yTEBjuOCndqIWHTToSFdg=='> SQL_PRED_CHAR</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED INTEGER <a href='#0200102yTEBjuOCndqIWHTToSFdg=='> SQL_PRED_CHAR</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  <!--
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  -->
+                  <tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      INTEGER 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010YgH/sDZTHPRK7aqEdAFnjQ==" href="#Top">Top</a>
+                <a name=" INTEGER <a href='#020010YgH/sDZTHPRK7aqEdAFnjQ=='> SQL_PRED_NONE</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED INTEGER <a href='#020010YgH/sDZTHPRK7aqEdAFnjQ=='> SQL_PRED_NONE</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  <!--
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  -->
+                  <tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      INTEGER 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010phTpzqqf0VkpFBbwep1+1w==" href="#Top">Top</a>
+                <a name=" INTEGER <a href='#020010phTpzqqf0VkpFBbwep1+1w=='> SQL_PRED_SEARCHABLE</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED INTEGER <a href='#020010phTpzqqf0VkpFBbwep1+1w=='> SQL_PRED_SEARCHABLE</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  <!--
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  -->
+                  <tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      INTEGER 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010P7iEtYX4VbPy2PW3KNYtsg==" href="#Top">Top</a>
+                <a name=" INTEGER <a href='#020010P7iEtYX4VbPy2PW3KNYtsg=='> SQL_SEARCHABLE</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED INTEGER <a href='#020010P7iEtYX4VbPy2PW3KNYtsg=='> SQL_SEARCHABLE</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  <!--
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  -->
+                  <tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      INTEGER 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010BvrB66Xqby0iC+j9DFk63g==" href="#Top">Top</a>
+                <a name=" INTEGER <a href='#020010BvrB66Xqby0iC+j9DFk63g=='> SQL_TRUE</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED INTEGER <a href='#020010BvrB66Xqby0iC+j9DFk63g=='> SQL_TRUE</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'><td class='paramname'></td><td class='paramdesc'>File        : SqlStatementConstants.i </td></tr><td class='paramname'></td><td class='paramdesc'>Purpose     : Constant values for SQL </td></tr><td class='paramname'></td><td class='paramdesc'>Author(s)   : pjudge </td></tr><td class='paramname'></td><td class='paramdesc'>Created     : Mon Jul 15 10:53:52 EDT 2013 </td></tr><td class='paramname'></td><td class='paramdesc'>Notes       : </td></tr></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  <!--
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  -->
+                  <tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      INTEGER 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010h2DvP5F5RMDWcEXeRnV4jg==" href="#Top">Top</a>
+                <a name=" SqlCommonFunctions <a href='#020010h2DvP5F5RMDWcEXeRnV4jg=='> SqlCommonLib</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED SqlCommonFunctions <a href='#020010h2DvP5F5RMDWcEXeRnV4jg=='> SqlCommonLib</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  <!--
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  -->
+                  <tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      SqlCommonFunctions 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010P8iqrkY7Pn/n8qOroI5ZGQ==" href="#Top">Top</a>
+                <a name=" INT64 <a href='#020010P8iqrkY7Pn/n8qOroI5ZGQ=='> StatementHandle</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PUBLIC INT64 <a href='#020010P8iqrkY7Pn/n8qOroI5ZGQ=='> StatementHandle</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  <!--
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  -->
+                  <tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      INT64 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr><tr class="table_content table_detail_row">
+    <th colspan="2" align="left" valign="top" class="cell">
+        <div class="table_detail_comment_div">
+            <font class="Code_Text">
+                <a name="020010T0wP60vVHRRYqLGvbegSTw==" href="#Top">Top</a>
+                <a name=" CHARACTER <a href='#020010T0wP60vVHRRYqLGvbegSTw=='> StatementId</a>"></a>
+            </font>
+        </div>
+        <h3 class="Signature_Font">PROTECTED CHARACTER <a href='#020010T0wP60vVHRRYqLGvbegSTw=='> StatementId</a></h3>
+        <table>
+            <tr>
+                <td>
+                    <div class="img_" Title="Static">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Abstract">
+                    </div>
+                </td>
+                <td>
+                    <div class="img_" Title="Final">
+                    </div> 
+                </td>
+            </tr>
+        </table>
+        <i> Inherited from <a href='OpenEdge.Data.ODBC.SqlStatement.html'>OpenEdge.Data.ODBC.SqlStatement</a> </i>
+        <div>
+        <dl>
+          <dd class="detail_comment">
+            <table><tbody class='commment_formater_table'><tr><td class='paramname'>Purpose: </td><td class='paramdesc'>An unique identifier of a particular statement. Typically a hash of the statement or some other named identifier, </td></tr><td class='paramname'></td><td class='paramdesc'>but not the statement handle, which is transient. </td></tr></tbody></table>
+            <dl>
+              <table class="parameter_table">
+                  <!--
+                  <tr>
+                    <td colspan="2">
+                      <b>Parameters:</b>           
+                    </td>
+                  </tr>
+                  -->
+                  <tr>
+    <td class="document_detail_parameter">
+        <i><b>Returns</b></i>
+    </td>
+    <td>
+      CHARACTER 
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td class="document_detail_parameter">
+    </td>
+    <td>
+        
+    </td>
+</tr>
+              </table>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </th>
+</tr>
+        </tbody>
+    </table>
+    <br>
+    <br>
+    
+    <font class="footer_timestamp">10.15.2014 16:08:11</font>
+    </BODY>
+</HTML>

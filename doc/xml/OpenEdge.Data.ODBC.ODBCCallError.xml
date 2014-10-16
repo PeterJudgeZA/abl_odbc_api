@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit packageName="OpenEdge.Data.ODBC" className="ODBCCallError" inherits="AppError" isAbstract="false" isFinal="false" isInterface="false">
+    <classComment>/* ****&#xD;
+Copyright 2013 Progress Software Corporation&#xD;
+&#xD;
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);&#xD;
+you may not use this file except in compliance with the License.&#xD;
+You may obtain a copy of the License at&#xD;
+&#xD;
+  http://www.apache.org/licenses/LICENSE-2.0&#xD;
+&#xD;
+Unless required by applicable law or agreed to in writing, software&#xD;
+distributed under the License is distributed on an &quot;AS IS&quot; BASIS,&#xD;
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#xD;
+See the License for the specific language governing permissions and&#xD;
+limitations under the License.&#xD;
+**** */</classComment>
+    <classComment>/*------------------------------------------------------------------------&#xD;
+    File        : ODBCCallError&#xD;
+    Purpose     : Purposed type for raising errors resulting from a call to ODBC. &#xD;
+    Syntax      : &#xD;
+    Description : &#xD;
+    Author(s)   : pjudge&#xD;
+    Created     : Tue Aug 06 11:30:59 EDT 2013&#xD;
+    Notes       : &#xD;
+  ----------------------------------------------------------------------*/</classComment>
+    <constructor signature="ODBCCallError(INPUT:SqlReturnCodeEnum,INPUT:character,INPUT:JsonArray)" modifier="PUBLIC">
+        <parameter name="poReturnCode" dataType="SqlReturnCodeEnum" position="0" mode="INPUT"/>
+        <parameter name="pcExternalProcedure" dataType="CHARACTER" position="1" mode="INPUT"/>
+        <parameter name="poDiagnosticRecord" dataType="JsonArray" position="2" mode="INPUT"/>
+    </constructor>
+    <constructor signature="ODBCCallError(INPUT:SqlReturnCodeEnum,INPUT:character)" modifier="PUBLIC">
+        <parameter name="poReturnCode" dataType="SqlReturnCodeEnum" position="3" mode="INPUT"/>
+        <parameter name="pcExternalProcedure" dataType="CHARACTER" position="4" mode="INPUT"/>
+    </constructor>
+    <property name="ReturnCode" dataType="SqlReturnCodeEnum" isAbstract="false" isStatic="false" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="ExternalProcedure" dataType="CHARACTER" isAbstract="false" isStatic="false" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="DiagnosticRecord" dataType="JsonArray" isAbstract="false" isStatic="false" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PUBLIC"/>
+    <using name="OpenEdge.Core.Assert" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.SqlReturnCodeEnum" type="NONE"/>
+    <using name="Progress.Json.ObjectModel.JsonArray" type="NONE"/>
+    <using name="Progress.Lang.AppError" type="NONE"/>
+</unit>

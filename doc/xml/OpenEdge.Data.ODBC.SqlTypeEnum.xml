@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit packageName="OpenEdge.Data.ODBC" className="SqlTypeEnum" inherits="EnumMember" isAbstract="false" isFinal="false" isInterface="false">
+    <classComment>/* ****&#xD;
+Copyright 2013 Progress Software Corporation&#xD;
+&#xD;
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);&#xD;
+you may not use this file except in compliance with the License.&#xD;
+You may obtain a copy of the License at&#xD;
+&#xD;
+  http://www.apache.org/licenses/LICENSE-2.0&#xD;
+&#xD;
+Unless required by applicable law or agreed to in writing, software&#xD;
+distributed under the License is distributed on an &quot;AS IS&quot; BASIS,&#xD;
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#xD;
+See the License for the specific language governing permissions and&#xD;
+limitations under the License.&#xD;
+**** */</classComment>
+    <classComment>/*------------------------------------------------------------------------&#xD;
+    File        : SqlTypeEnum&#xD;
+    Purpose     : &#xD;
+    Syntax      : &#xD;
+    Description : &#xD;
+    Author(s)   : pjudge&#xD;
+    Created     : Fri Jul 26 11:42:01 EDT 2013&#xD;
+    Notes       : &#xD;
+  ----------------------------------------------------------------------*/</classComment>
+    <constructor signature="SqlTypeEnum(INPUT:integer,INPUT:character)" modifier="PROTECTED">
+        <parameter name="piValue" dataType="INTEGER" position="0" mode="INPUT"/>
+        <parameter name="pcName" dataType="CHARACTER" position="1" mode="INPUT"/>
+    </constructor>
+    <method methodName="ValueToEnum" returnType="SqlTypeEnum" signature="ValueToEnum(INPUT:integer):SqlTypeEnum" modifier="PUBLIC" isStatic="true" isFinal="false" isAbstract="false">
+        <parameter name="piValue" dataType="INTEGER" position="2" mode="INPUT"/>
+    </method>
+    <property name="SQL_ALL_TYPES" dataType="SqlTypeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_UNKNOWN_TYPE" dataType="SqlTypeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_CHAR" dataType="SqlTypeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_VARCHAR" dataType="SqlTypeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_LONGVARCHAR" dataType="SqlTypeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_WCHAR" dataType="SqlTypeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_WVARCHAR" dataType="SqlTypeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_WLONGVARCHAR" dataType="SqlTypeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_DECIMAL" dataType="SqlTypeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_NUMERIC" dataType="SqlTypeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_SMALLINT" dataType="SqlTypeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_INTEGER" dataType="SqlTypeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_REAL" dataType="SqlTypeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_FLOAT" dataType="SqlTypeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_DOUBLE" dataType="SqlTypeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_BIT" dataType="SqlTypeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_TINYINT" dataType="SqlTypeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_BIGINT" dataType="SqlTypeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_BINARY" dataType="SqlTypeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_LONGVARBINARY" dataType="SqlTypeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_TYPE_DATE" dataType="SqlTypeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_TYPE_TIME" dataType="SqlTypeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_TYPE_TIMESTAMP" dataType="SqlTypeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_TYPE_UTCDATETIME" dataType="SqlTypeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_TYPE_UTCTIME" dataType="SqlTypeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <property name="SQL_GUID" dataType="SqlTypeEnum" isAbstract="false" isStatic="true" extent="0" modifier="PUBLIC" getModifier="PUBLIC" setModifier="PRIVATE"/>
+    <using name="OpenEdge.Core.EnumMember" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.SqlTypeEnum" type="NONE"/>
+</unit>

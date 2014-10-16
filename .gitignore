@@ -1,3 +1,21 @@
+# this project
+
+*.launch
+*.docx
+*.tar
+*.zip
+*.gz
+
+temp/empty.dir
+
+
+# ABL/PDSOE
+bin/
+.settings/
+*.r
+*.pl
+
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
@@ -41,3 +59,4 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+

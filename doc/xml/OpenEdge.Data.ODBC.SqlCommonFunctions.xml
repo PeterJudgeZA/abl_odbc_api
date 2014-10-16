@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit packageName="OpenEdge.Data.ODBC" className="SqlCommonFunctions" isAbstract="false" isFinal="false" isInterface="false">
+    <classComment>/* ****&#xD;
+Copyright 2013 Progress Software Corporation&#xD;
+&#xD;
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);&#xD;
+you may not use this file except in compliance with the License.&#xD;
+You may obtain a copy of the License at&#xD;
+&#xD;
+  http://www.apache.org/licenses/LICENSE-2.0&#xD;
+&#xD;
+Unless required by applicable law or agreed to in writing, software&#xD;
+distributed under the License is distributed on an &quot;AS IS&quot; BASIS,&#xD;
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#xD;
+See the License for the specific language governing permissions and&#xD;
+limitations under the License.&#xD;
+**** */</classComment>
+    <classComment>/*------------------------------------------------------------------------&#xD;
+    File        : SqlCommonFunctions&#xD;
+    Purpose     : &#xD;
+    Syntax      : &#xD;
+    Description : &#xD;
+    Author(s)   : pjudge&#xD;
+    Created     : Wed Jul 10 15:12:06 EDT 2013&#xD;
+    Notes       : &#xD;
+  ----------------------------------------------------------------------*/</classComment>
+    <method methodName="AllocateHandle" returnType="INT64" signature="AllocateHandle(INPUT:SqlHandleTypeEnum,INPUT:int64):INT64" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false">
+        <parameter name="poHandleType" dataType="SqlHandleTypeEnum" position="16" mode="INPUT"/>
+        <parameter name="piParentHandle" dataType="INT64" position="17" mode="INPUT"/>
+    </method>
+    <method methodName="FreeHandle" signature="FreeHandle(INPUT:SqlHandleTypeEnum,INPUT:int64)" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false">
+        <parameter name="poHandleType" dataType="SqlHandleTypeEnum" position="18" mode="INPUT"/>
+        <parameter name="piHandle" dataType="INT64" position="19" mode="INPUT"/>
+    </method>
+    <method methodName="ProcessReturnCode" signature="ProcessReturnCode(INPUT:SqlReturnCodeEnum,INPUT:character)" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false">
+        <parameter name="poReturnCode" dataType="SqlReturnCodeEnum" position="20" mode="INPUT"/>
+        <parameter name="pcExternalProcedure" dataType="CHARACTER" position="21" mode="INPUT"/>
+    </method>
+    <method methodName="ProcessReturnCode" signature="ProcessReturnCode(INPUT:integer,INPUT:character)" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false">
+        <parameter name="piReturnCode" dataType="INTEGER" position="22" mode="INPUT"/>
+        <parameter name="pcExternalProcedure" dataType="CHARACTER" position="23" mode="INPUT"/>
+    </method>
+    <method methodName="ProcessReturnCode" returnType="JsonArray" signature="ProcessReturnCode(INPUT:SqlReturnCodeEnum,INPUT:character,INPUT:SqlHandleTypeEnum,INPUT:int64):JsonArray" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false">
+        <parameter name="poReturnCode" dataType="SqlReturnCodeEnum" position="24" mode="INPUT"/>
+        <parameter name="pcExternalProcedure" dataType="CHARACTER" position="25" mode="INPUT"/>
+        <parameter name="poHandleType" dataType="SqlHandleTypeEnum" position="26" mode="INPUT"/>
+        <parameter name="piHandle" dataType="INT64" position="27" mode="INPUT"/>
+    </method>
+    <method methodName="GetDiagnosticRecord" returnType="JsonArray" signature="GetDiagnosticRecord(INPUT:SqlHandleTypeEnum,INPUT:int64):JsonArray" modifier="PUBLIC" isStatic="false" isFinal="false" isAbstract="false">
+        <parameter name="poHandleType" dataType="SqlHandleTypeEnum" position="28" mode="INPUT"/>
+        <parameter name="piHandle" dataType="INT64" position="29" mode="INPUT"/>
+    </method>
+    <using name="OpenEdge.Data.ODBC.ODBCCallError" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.SqlHandleTypeEnum" type="NONE"/>
+    <using name="OpenEdge.Data.ODBC.SqlReturnCodeEnum" type="NONE"/>
+    <using name="Progress.Json.ObjectModel.JsonArray" type="NONE"/>
+    <using name="Progress.Json.ObjectModel.JsonObject" type="NONE"/>
+</unit>
