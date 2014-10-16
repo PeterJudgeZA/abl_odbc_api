@@ -5,7 +5,7 @@
 	<property name="projectRoot" value="${appRoot}" />
     
 	<!-- Common, property-driven tasks are in build-common.xml (eg. doc, package, bundle) -->
-	<import file="C:/devarea/common/ant/build-common.xml"/>
+	<import file="build-common.xml"/>
 
 	<!-- Creates an archive for use with the PDSOE Samples page (iue). Contains code, doc and other artifacts. -->
 	<target name="bundle" description="Packages the project" >

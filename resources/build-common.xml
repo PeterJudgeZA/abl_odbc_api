@@ -117,14 +117,13 @@
 	   
 		<zip destfile="${bundleFile}" update="true">		    
 			<zipfileset dir="${projectRoot}/conf" prefix="conf" />
-			<zipfileset dir="${projectRoot}/doc" prefix="doc" />			
+			<zipfileset dir="${projectRoot}/doc" prefix="doc"/> 
 			<zipfileset dir="${projectRoot}/src" prefix="src"
 				excludes="**/.copyarea.db **/**.r" />
 			<zipfileset dir="${projectRoot}/tests" prefix="tests"
 				excludes="**/.copyarea.db **/**.r" />
 				
 			<zipfileset dir="${projectRoot}/resources" prefix="resources" />
-			<zipfileset file="C:/devarea/common/ant/build-common.xml" prefix="resources" /> 
 			
 		    <!-- dummy file to create bin directory in archive -->
 		    <zipfileset file="${projectRoot}/temp/empty.dir" prefix="bin" />
