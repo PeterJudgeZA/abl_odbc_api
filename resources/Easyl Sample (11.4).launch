@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="abl.launchType">
+<booleanAttribute key="abl.abl.REREAD_NO_LOCK" value="true"/>
+<intAttribute key="abl.abl.STATEMENT_INPUT_CHARS" value="16000"/>
+<intAttribute key="abl.abl.STATEMENT_TOKENS" value="4000"/>
+<booleanAttribute key="abl.abl.USE_APPLICATION_ALERT" value="true"/>
+<booleanAttribute key="abl.abl.USE_DEBUG_ALERT" value="true"/>
+<booleanAttribute key="abl.abl.USE_SYSTEM_ALERT" value="true"/>
+<booleanAttribute key="abl.client.HIDE_TTY" value="false"/>
+<stringAttribute key="abl.client.PROVERSION" value="11.4"/>
+<booleanAttribute key="abl.databases.USE_PROJECT" value="false"/>
+<stringAttribute key="abl.debug.ABL_PROGRAM" value="${workspace_loc:/ODBC_ABL_API/tests/run_EASYL_sample.p}"/>
+<stringAttribute key="abl.debug.ATTR_ABL_PROJECT_NAME" value="ODBC_ABL_API"/>
+<booleanAttribute key="abl.debug.GENERATE_LAUNCHER_PROGRAM" value="true"/>
+<booleanAttribute key="abl.debug.PROPATH_USE_DEFAULT" value="true"/>
+<stringAttribute key="abl.i18n.CASE_TABLE" value="Basic"/>
+<stringAttribute key="abl.i18n.COLLATION_TABLE" value="Basic"/>
+<stringAttribute key="abl.i18n.DATE_FORMAT" value="mdy"/>
+<intAttribute key="abl.i18n.FRACTIONAL_SEP" value="46"/>
+<stringAttribute key="abl.i18n.INTERNAL_CODE_PAGE" value="UTF-8"/>
+<stringAttribute key="abl.i18n.STREAM_CODE_PAGE" value="UTF-8"/>
+<intAttribute key="abl.i18n.THOUSANDS_SEP" value="44"/>
+<stringAttribute key="abl.logging.CLIENT_LOG" value="${workspace_loc:/DataDirectCloud_ABL_API/temp/logmanager.log}"/>
+<intAttribute key="abl.logging.LOGGING_THRESHOLD" value="500000"/>
+<intAttribute key="abl.performance.LOCAL_BUFFER_SIZE" value="500"/>
+<intAttribute key="abl.performance.MAXIMUM_MEMORY" value="65534"/>
+<intAttribute key="abl.performance.STACK_SIZE" value="200"/>
+<stringAttribute key="abl.performance.TEMP_DIRECTORY" value="${workspace_loc:/ODBC_ABL_API/temp}"/>
+<booleanAttribute key="abl.performance.USE_DEFALTS" value="false"/>
+<booleanAttribute key="abl.startup.ERROR_STACK_TRACE" value="true"/>
+<stringAttribute key="abl.startup.WORKING_DIRECTORY" value="${workspace_loc:/ODBC_ABL_API}"/>
+<listAttribute key="logging.LOGGING_ENABLED_TYPES">
+<listEntry value="4GLTrace:4:true"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/ODBC_ABL_API"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="4"/>
+</listAttribute>
+<booleanAttribute key="org.eclipse.debug.core.capture_output" value="false"/>
+<stringAttribute key="org.eclipse.debug.core.source_locator_id" value="com.openedge.pdt.debug.core.abl.sourceLocator"/>
+<stringAttribute key="org.eclipse.debug.core.source_locator_memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#13;&#10;&lt;sourceLookupDirector&gt;&#13;&#10;&lt;sourceContainers duplicates=&quot;false&quot;&gt;&#13;&#10;&lt;container memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;default/&amp;gt;&amp;#13;&amp;#10;&quot; typeId=&quot;org.eclipse.debug.core.containerType.default&quot;/&gt;&#13;&#10;&lt;container memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;OpenEdgeProject name=&amp;quot;Corticon ABL API&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot; typeId=&quot;openedge.container&quot;/&gt;&#13;&#10;&lt;/sourceContainers&gt;&#13;&#10;&lt;/sourceLookupDirector&gt;&#13;&#10;"/>
+<booleanAttribute key="org.eclipse.debug.ui.ATTR_CONSOLE_OUTPUT_ON" value="false"/>
+<booleanAttribute key="org.eclipse.debug.ui.ATTR_LAUNCH_IN_BACKGROUND" value="false"/>
+<listAttribute key="org.eclipse.debug.ui.favoriteGroups">
+<listEntry value="org.eclipse.debug.ui.launchGroup.debug"/>
+<listEntry value="org.eclipse.debug.ui.launchGroup.run"/>
+</listAttribute>
+<booleanAttribute key="org.eclipse.debug.ui.private" value="false"/>
+</launchConfiguration>
