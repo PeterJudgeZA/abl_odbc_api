@@ -81,7 +81,7 @@ class OpenEdge.Core.ServerConnection.ODBCConnection use-widget-pool implements I
     
     constructor public ODBCConnection(input poConnectionParameters as ODBCConnectionParameters):
         Assert:IsType(poConnectionParameters,
-            Progress.Lang.Class:GetClass('OpenEdge.Core.ServerConnection.ODBCConnectionParameters')).
+            get-class(OpenEdge.Core.ServerConnection.ODBCConnectionParameters)).
         
         assign ConnectionParameters = poConnectionParameters
                SqlCommonLib = new SqlCommonFunctions().
@@ -204,7 +204,7 @@ class OpenEdge.Core.ServerConnection.ODBCConnection use-widget-pool implements I
 	    
 	    @return SqlExecuteDirect  */
     method public SqlExecuteDirect CreateExecuteStatement():
-        return cast(SqlStatementFactory(Progress.Lang.Class:GetClass('OpenEdge.Data.ODBC.SqlExecuteDirect')), SqlExecuteDirect).
+        return cast(SqlStatementFactory(get-class(OpenEdge.Data.ODBC.SqlExecuteDirect)), SqlExecuteDirect).
     end method.
     
     method private SqlStatement SqlStatementFactory(input poStatementType as Progress.Lang.Class):
@@ -261,15 +261,15 @@ class OpenEdge.Core.ServerConnection.ODBCConnection use-widget-pool implements I
     end method.
     
     method public SqlGetTables CreateTableStatement().
-        return cast(SqlStatementFactory(Progress.Lang.Class:GetClass('OpenEdge.Data.ODBC.SqlGetTables')), SqlGetTables).
+        return cast(SqlStatementFactory(get-class(OpenEdge.Data.ODBC.SqlGetTables)), SqlGetTables).
     end method.
 
     method public SqlGetColumns CreateColumnStatement().
-        return cast(SqlStatementFactory(Progress.Lang.Class:GetClass('OpenEdge.Data.ODBC.SqlGetColumns')), SqlGetColumns).
+        return cast(SqlStatementFactory(get-class(OpenEdge.Data.ODBC.SqlGetColumns)), SqlGetColumns).
     end method.
     
     method public SqlGetTypeInfo CreateTypeInfoStatement().
-        return cast(SqlStatementFactory(Progress.Lang.Class:GetClass('OpenEdge.Data.ODBC.SqlGetTypeInfo')), SqlGetTypeInfo).
+        return cast(SqlStatementFactory(get-class(OpenEdge.Data.ODBC.SqlGetTypeInfo)), SqlGetTypeInfo).
     end method.
     
     /** Executes a SQL statement and returns a result set.

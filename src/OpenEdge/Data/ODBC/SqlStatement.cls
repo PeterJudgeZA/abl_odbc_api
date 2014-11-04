@@ -444,7 +444,7 @@ class OpenEdge.Data.ODBC.SqlStatement abstract:
         
         @param handle The buffer handle into which the result set is stored */
     method protected void LoadResultSet(input phTargetReference as handle):
-        Assert:IsType(phTargetReference, DataTypeEnum:Handle, 'Target Reference').
+        Assert:IsType(phTargetReference, DataTypeEnum:Buffer, 'Target Reference').
         
         RowRead:Subscribe(this-object:RowReadTableEventHandler()). 
         RowReadComplete:Subscribe(this-object:RowReadCompleteTableEventHandler()).
@@ -831,9 +831,7 @@ class OpenEdge.Data.ODBC.SqlStatement abstract:
             SQLCHAR                      = bytes
             SQLCHAR[SQL_MAX_NUMERIC_LEN] = SQL_MAX_NUMERIC_LEN bytes 
         */
-        undo, throw new AppError('DataToNumeric function not implemented', 0).
-        
-        return dValue.
+        return error new AppError('DataToNumeric function not implemented', 0).
         /* NOTE: do not clean up the pmColumnValue memptr here, because it has been passed by reference.
            Let the caller (actually BuildResultSet) deal with cleanup. */
     end method.

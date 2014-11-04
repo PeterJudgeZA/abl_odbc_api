@@ -70,16 +70,16 @@ oD2CServer:Initialize().
 
 oResultSet = oD2CServer:GetTables(false).
 if valid-object(oResultSet) then
-    oResultSet:WriteFile('temp/get-tables-object.json', true).
+    oResultSet:WriteFile(session:temp-dir + 'get-tables-object.json', true).
 
 oResultSet = oD2CServer:GetTableSchema('USER').
 if valid-object(oResultSet) then
-    oResultSet:WriteFile('temp/user-table-object.json', true).
+    oResultSet:WriteFile(session:temp-dir + 'user-table-object.json', true).
 
 
 oResultArray = oD2CServer:GetTypeInfo().
 if valid-object(oResultArray) then
-    oResultArray:WriteFile('temp/type-info-all.json', true).
+    oResultArray:WriteFile(session:temp-dir + 'type-info-all.json', true).
 
 cStmt = 'select ROWID, USERNAME, LASTNAME, EMAIL from USER'.
 cStmt = " select ROWID, USERNAME, LASTNAME, EMAIL from USER where LASTNAME = 'Moloney' ".
@@ -88,14 +88,14 @@ cStmt = " select USERTYPE, USERPERMISSIONSMOBILEUSER, LASTLOGINDATE, ROWID, USER
 
 oD2CServer:ExecuteStatement(cStmt, output oResultSet).
 if valid-object(oResultSet) then
-    oResultSet:WriteFile('temp/execute-user-object.json', true).
+    oResultSet:WriteFile(session:temp-dir + 'execute-user-object.json', true).
 
 cStmt = "select ACCOUNTNUMBER, ANNUALREVENUE, NUMBEROFEMPLOYEES, DESCRIPTION, SLAEXPIRATIONDATE, SYS_NAME from ACCOUNT ".
 
 /**/
 oD2CServer:ExecuteStatement(cStmt, output oResultSet).
 if valid-object(oResultSet) then
-    oResultSet:WriteFile('temp/execute-ACCOUNT-object.json', true).
+    oResultSet:WriteFile(session:temp-dir + 'execute-ACCOUNT-object.json', true).
 /**/
 
 /*
@@ -103,7 +103,7 @@ cStmt = " select LASTLOGINDATE, ROWID, USERNAME, LASTNAME, EMAIL from USER where
 cStmt = " select ROWID, USERNAME, LASTNAME, EMAIL from USER where LASTNAME = 'Moloney' ".
 /*cStmt = "select * from USER where LASTNAME = 'Moloney' ".*/
 oD2CServer:ExecuteStatement(cStmt, output table-handle hResultSet).
-hResultSet:write-json('file', 'temp/execute-user-table-filter.json', true).
+hResultSet:write-json('file', session:temp-dir + 'execute-user-table-filter.json', true).
 */
 
 /*                                                               */
@@ -125,7 +125,7 @@ cStmt = "update USER
 
 oD2CServer:ExecuteStatement(cStmt, output oResultSet).
 if valid-object(oResultSet) then
-    oResultSet:WriteFile('temp/execute-update-user-object.json', true).
+    oResultSet:WriteFile(session:temp-dir + 'execute-update-user-object.json', true).
 */
 
 catch e as OpenEdge.Data.ODBC.ODBCCallError:

@@ -52,7 +52,7 @@ cStmt = 'select "attribute1", "attribute2", "attribute3" from "object1"'.
 
 oD2CServer:ExecuteStatement(cStmt, output table-handle hResultSet).
 /* just dump the output to disk. Obviously you would do more with this data in the real world */
-hResultSet:write-json('file', 'temp/resultset-easyl-table.json', true).
+hResultSet:write-json('file', session:temp-dir + 'resultset-easyl-table.json', true).
 
 /* Execute a SQL SELECT statement and get the result set in JSON form */
 cStmt = 'select "attribute1", "attribute2", "attribute3" from "object2"'.
@@ -60,7 +60,7 @@ cStmt = 'select "attribute1", "attribute2", "attribute3" from "object2"'.
 oD2CServer:ExecuteStatement(cStmt, output oResultSet).
 /* just dump the output to disk. Obviously you would do more with this data in the real world */
 if valid-object(oResultSet) then
-    oResultSet:WriteFile('temp/resultset-easyl-json.json', true).
+    oResultSet:WriteFile(session:temp-dir + 'resultset-easyl-json.json', true).
 
 /* Deal with any errors */
 catch e as OpenEdge.Data.ODBC.ODBCCallError:

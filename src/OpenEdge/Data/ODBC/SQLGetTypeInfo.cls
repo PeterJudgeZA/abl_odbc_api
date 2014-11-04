@@ -262,7 +262,7 @@ class OpenEdge.Data.ODBC.SQLGetTypeInfo inherits SqlStatement:
         LoadResultSet(buffer TypeInfo:handle).
         
         if session:debug-alert then
-            buffer TypeInfo:write-json('file', 'temp/SQLGetTypeInfo_TypeInfo.json', true).
+            buffer TypeInfo:write-json('file', session:temp-dir + 'SQLGetTypeInfo_TypeInfo.json', true).
     end method.
     
 	method public JsonArray GetTypeInfo (input poSqlType as SqlTypeEnum):

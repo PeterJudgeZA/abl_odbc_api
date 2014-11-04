@@ -51,14 +51,28 @@ oD2CServer:Initialize().
 cStmt = " select USERNAME, LASTNAME, EMAIL from USER ".
 oD2CServer:ExecuteStatement(cStmt, output table-handle hResultSet).
 /* just dump the output to disk. Obviously you would do more with this data in the real world */
-hResultSet:write-json('file', 'temp/resultset-d2c-table.json', true).
+hResultSet:write-json('file', session:temp-dir + 'resultset-d2c-table.json', true).
 
 /* Execute a SQL SELECT statement and get the result set in JSON form */
 cStmt = "select ACCOUNTNUMBER, SYS_NAME, ANNUALREVENUE, NUMBEROFEMPLOYEES, DESCRIPTION, SLAEXPIRATIONDATE from ACCOUNT ".
 oD2CServer:ExecuteStatement(cStmt, output oResultSet).
 /* just dump the output to disk. Obviously you would do more with this data in the real world */
 if valid-object(oResultSet) then
-    oResultSet:WriteFile('temp/resultset-d2c-json.json', true).
+    oResultSet:WriteFile(session:temp-dir + 'resultset-d2c-json.json', true).
+
+
+/* Execute a SQL SELECT statement and get the result set as an existing ABL temp-table */
+define temp-table ttUser no-undo
+    field USERNAME as character
+    field LASTNAME as character
+    field EMAIL as character
+    index idx1 USERNAME.
+    
+cStmt = " select USERNAME, LASTNAME, EMAIL from USER ".
+oD2CServer:ExecuteStatement(cStmt, input buffer ttUser:handle).
+
+/* just dump the output to disk. Obviously you would do more with this data in the real world */
+buffer ttUser:write-json('file', session:temp-dir + 'resultset-d2c-buffer.json', true).
 
 /* Deal with any errors */
 catch e as OpenEdge.Data.ODBC.ODBCCallError:
@@ -83,13 +97,13 @@ end catch.
 catch eAE as Progress.Lang.AppError:
     message 
       eAE:ReturnValue skip(2)
-      e:GetMessage(1) skip
-      e:GetMessage(2) skip
-      e:GetMessage(3) skip
-      e:GetMessage(4) skip
-      e:GetMessage(5) skip(2)
-      e:CallStack
-      view-as alert-box title 'AppError: Caught ' + string(e:NumMessages).
+      eAE:GetMessage(1) skip
+      eAE:GetMessage(2) skip
+      eAE:GetMessage(3) skip
+      eAE:GetMessage(4) skip
+      eAE:GetMessage(5) skip(2)
+      eAE:CallStack
+      view-as alert-box title 'AppError: Caught ' + string(eAE:NumMessages).
 end catch.
   
 finally:
