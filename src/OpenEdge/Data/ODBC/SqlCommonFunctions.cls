@@ -150,7 +150,7 @@ class OpenEdge.Data.ODBC.SqlCommonFunctions:
                    input-output mSqlState,
                    input-output mNativeError,
                    input-output mMessageText,
-                   input        length(mMessageText),
+                   input        get-size(mMessageText),
                    input-output mTextLength,
                          output iReturnCode).
                                      

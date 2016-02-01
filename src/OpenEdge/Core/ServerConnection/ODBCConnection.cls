@@ -163,7 +163,7 @@ class OpenEdge.Core.ServerConnection.ODBCConnection use-widget-pool implements I
         set-size(mValue) = 4.
         put-string(mValue, 1) = pcValue.
         assign iEnvValue = get-long(mValue, 1)
-               iValueLength = length(mValue).
+               iValueLength = get-size(mValue).
         
         run SQLSetEnvAttr (input  miEnvironmentHandle,
                            input  piAttribute,
