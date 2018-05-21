@@ -1,5 +1,6 @@
+&if false &then
 /* ****
-Copyright 2013 Progress Software Corporation
+Copyright 2013, 2018 Progress Software Corporation
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -20,21 +21,28 @@ limitations under the License.
     Created     : Tue Jul 02 13:50:17 EDT 2013
     Notes       :  
   ----------------------------------------------------------------------*/
+&endif
 /* platform-specific DLL location */
 {OpenEdge/Data/ODBC/DriverManagerLib.i}
-  
+
+&if {&PROCESS-ARCHITECTURE} = 64 &then
+&scoped-define SQLHANDLE-TYPE int64
+&else 
+&scoped-define SQLHANDLE-TYPE long
+&endif
+ 
 /* Doc at http://msdn.microsoft.com/en-us/library/windows/desktop/ms712631%28v=vs.85%29.aspx */
 procedure SQLSetStmtAttr external "{&ODBC-DLL}" persistent.
-    define input        parameter StatementHandle   as long.    /* [Input] SQLHSTMT:SQLHANDLE */
-    define input        parameter Attribute         as long.    /* SQLINTEGER */
-    define input        parameter ValuePtr          as long.    /* SQLPOINTER */
-    define input        parameter StringLength      as long.    /* SQLINTEGER */     
-    define return       parameter returnValue       as short.   /* SQLRETURN */
+    define input        parameter StatementHandle   as {&SQLHANDLE-TYPE}.        /* [Input] SQLHSTMT:SQLHANDLE */
+    define input        parameter Attribute         as long.        /* SQLINTEGER */
+    define input        parameter ValuePtr          as memptr.      /* SQLPOINTER */
+    define input        parameter StringLength      as long.        /* SQLINTEGER */     
+    define return       parameter returnValue       as short.       /* SQLRETURN */
 end procedure.
 
 /* Doc at http://msdn.microsoft.com/en-us/library/windows/desktop/ms713611%28v=vs.85%29.aspx */
 procedure SQLExecDirect external "{&ODBC-DLL}" persistent.
-    define input        parameter StatementHandle   as long.        /* [Input] SQLHSTMT:SQLHANDLE */
+    define input        parameter StatementHandle   as {&SQLHANDLE-TYPE}.        /* [Input] SQLHSTMT:SQLHANDLE */
     define input        parameter StatementText     as character.   /* [Input] SQLCHAR* */
     define input        parameter TextLength        as int64.       /* [Input] SQLINTEGER */
     define return       parameter returnValue       as short.       /* [Return] SQLRETURN */
@@ -42,20 +50,20 @@ end procedure.
 
 /* Doc at http://msdn.microsoft.com/en-us/library/windows/desktop/ms712424%28v=vs.85%29.aspx */
 procedure SQLFetch external "{&ODBC-DLL}" persistent.
-    define input        parameter StatementHandle   as long.        /* [Input] SQLHSTMT:SQLHANDLE */
+    define input        parameter StatementHandle   as {&SQLHANDLE-TYPE}.        /* [Input] SQLHSTMT:SQLHANDLE */
     define return       parameter returnValue       as short.       /* [Return] SQLRETURN */
 end procedure.
 
 /* Doc at http://msdn.microsoft.com/en-us/library/windows/desktop/ms715393%28v=vs.85%29.aspx */
 procedure SQLNumResultCols external "{&ODBC-DLL}" persistent.
-    define input        parameter StatementHandle   as long.        /* [Input] SQLHSTMT:SQLHANDLE */
+    define input        parameter StatementHandle   as {&SQLHANDLE-TYPE}.        /* [Input] SQLHSTMT:SQLHANDLE */
     define input-output parameter ColumnCountPtr    as memptr.      /* SQLSMALLINT* */    
     define return       parameter returnValue       as short.       /* [Return] SQLRETURN */
 end procedure.
 
 /* Doc at http://msdn.microsoft.com/en-us/library/windows/desktop/ms711010%28v=vs.85%29.aspx */
 procedure SQLBindCol external "{&ODBC-DLL}" persistent.
-    define input        parameter StatementHandle   as long.        /* [Input] SQLHSTMT:SQLHANDLE */
+    define input        parameter StatementHandle   as {&SQLHANDLE-TYPE}.        /* [Input] SQLHSTMT:SQLHANDLE */
     define input        parameter ColumnNumber      as long.        /* [Input] SQLSMALLINT */
     define input        parameter TargetType        as long.        /* [Input] SQLUSMALLINT */
     define input-output parameter TargetValuePtr    as memptr.      /* [Deferred Input/Output] SQLPOINTER */
@@ -66,7 +74,7 @@ end procedure.
 
 /* Doc at http://msdn.microsoft.com/en-us/library/windows/desktop/ms716289%28v=vs.85%29.aspx */
 procedure SQLDescribeCol external "{&ODBC-DLL}" persistent.
-    define input        parameter StatementHandle   as long.        /* [Input]  SQLHSTMT:SQLHANDLE */
+    define input        parameter StatementHandle   as {&SQLHANDLE-TYPE}.        /* [Input] SQLHSTMT:SQLHANDLE */
     define input        parameter ColumnNumber      as long.        /* [Input]  SQLUSMALLINT */
     define input-output parameter ColumnName        as memptr.      /* [Output] SQLCHAR* */
     define input        parameter BufferLength      as long.        /* [Input]  SQLSMALLINT */
@@ -80,7 +88,7 @@ end procedure.
 
 /* Doc at http://msdn.microsoft.com/en-us/library/windows/desktop/ms711831%28v=vs.85%29.aspx */
 procedure SQLTables external "{&ODBC-DLL}" persistent.
-    define input        parameter StatementHandle   as long.        /* SQLHSTMT:SQLHANDLE */
+    define input        parameter StatementHandle   as {&SQLHANDLE-TYPE}.        /* [Input] SQLHSTMT:SQLHANDLE */
     define input        parameter CatalogName       as character.   /* SQLCHAR* */
     define input        parameter NameLength1       as short.       /* SQLSMALLINT */
     define input        parameter SchemaName        as character.   /* SQLCHAR* */
@@ -94,7 +102,7 @@ end procedure.
 
 /* Doc at http://msdn.microsoft.com/en-us/library/windows/desktop/ms715441%28v=vs.85%29.aspx */
 procedure SQLGetData external "{&ODBC-DLL}" persistent.
-    define input        parameter StatementHandle   as long.        /* [Input] SQLHSTMT:SQLHANDLE */
+    define input        parameter StatementHandle   as {&SQLHANDLE-TYPE}.        /* [Input] SQLHSTMT:SQLHANDLE */
     define input        parameter Col_or_Param_Num  as long.        /* [Input] SQLUSMALLINT */
     define input        parameter TargetType        as long.        /* [Input] SQLUSMALLINT */
     define input-output parameter TargetValuePtr    as memptr.      /* [Output] SQLPOINTER */
@@ -105,14 +113,14 @@ end procedure.
 
 /* Doc at http://msdn.microsoft.com/en-us/library/windows/desktop/ms714632%28v=vs.85%29.aspx */
 procedure SQLGetTypeInfo external "{&ODBC-DLL}" persistent.
-    define input        parameter StatementHandle   as long.        /* [Input] SQLHSTMT:SQLHANDLE */
+    define input        parameter StatementHandle   as {&SQLHANDLE-TYPE}.      /* [Input] SQLHSTMT:SQLHANDLE */
     define input        parameter DataType          as long.        /* [Input] SQLUSMALLINT */
     define return       parameter returnValue       as short.       /* [Return] SQLRETURN */
 end procedure.
 
 /* Doc at http://msdn.microsoft.com/en-us/library/windows/desktop/ms711683%28v=vs.85%29.aspx */
 procedure SQLColumns external "{&ODBC-DLL}" persistent.
-    define input        parameter StatementHandle   as long.        /* [Input] SQLHSTMT:SQLHANDLE */
+    define input        parameter StatementHandle   as {&SQLHANDLE-TYPE}.        /* [Input] SQLHSTMT:SQLHANDLE */
     define input        parameter CatalogName       as character.   /* [Input] SQLCHAR* */
     define input        parameter NameLength1       as short.       /* [Input] SQLSMALLINT */
     define input        parameter SchemaName        as character.   /* [Input] SQLCHAR* */
@@ -126,7 +134,7 @@ end procedure.
 
 /* Doc at http://msdn.microsoft.com/en-us/library/windows/desktop/ms709301%28v=vs.85%29.aspx */
 procedure SQLCloseCursor external "{&ODBC-DLL}" persistent.
-    define input        parameter StatementHandle   as long.        /* [Input] SQLHSTMT:SQLHANDLE */
+    define input        parameter StatementHandle   as {&SQLHANDLE-TYPE}.        /* [Input] QLHSTMT:SQLHANDLE */
     define return       parameter returnValue       as short.       /* [Return] SQLRETURN */
 end procedure.
 
@@ -137,3 +145,4 @@ procedure  external "{&ODBC-DLL}" persistent.
     define return       parameter returnValue       as short.       /* [Return] SQLRETURN */
 end procedure.
 **/
+

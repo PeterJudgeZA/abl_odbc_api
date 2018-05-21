@@ -1,5 +1,5 @@
 /* ****
-Copyright 2013 Progress Software Corporation
+Copyright 2013, 2018 Progress Software Corporation
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -51,15 +51,15 @@ class OpenEdge.Core.ServerConnection.ODBCConnection use-widget-pool implements I
     define protected property SqlCommonLib as SqlCommonFunctions no-undo get. set.
     
     /**  Returns true if the server is valid and connected. False otherwise */
-	define public property Connected as logical no-undo get. 
-	
-	/** Parameters for this connection */
-	define public property ConnectionParameters as IConnectionParameters no-undo get. private set.
-	
+    define public property Connected as logical no-undo get. 
+    
+    /** Parameters for this connection */
+    define public property ConnectionParameters as IConnectionParameters no-undo get. private set.
+    
     /** A reference to the actual server. The type of this property depends on the server type 
         (since AppServers have HANDLEs, BPMServers have IBizLogicAPI and databases none. The Object 
         acts as a wrapper for handle-based servers */
-	define public property Server as Object no-undo get. 
+    define public property Server as Object no-undo get. 
 
     define private variable miEnvironmentHandle as int64 no-undo.
     define private variable miConnectionHandle as int64 no-undo.
@@ -111,38 +111,39 @@ class OpenEdge.Core.ServerConnection.ODBCConnection use-widget-pool implements I
     end method.
     
     /** Connect to the server specified, based on the ConnectionParameters */
-	method public void Connect():
-	    define variable iReturnCode as integer no-undo.
-	    define variable cDataSourceName as character no-undo.
-	    define variable cUserName as character no-undo.
-	    define variable cPassword as character no-undo.
-	    
-	    assign cDataSourceName = cast(ConnectionParameters, ODBCConnectionParameters):DataSourceName
-	           cUserName = cast(ConnectionParameters, ODBCConnectionParameters):UserName
-	           cPassword = cast(ConnectionParameters, ODBCConnectionParameters):Password
-	           .
-	    run SQLConnect(input miConnectionHandle,
-	                   input cDataSourceName,  input length(cDataSourceName),
-	                   input cUserName,        input length(cUserName),
-	                   input cPassword,        input length(cPassword),
-	                   output iReturnCode).
+    method public void Connect():
+        define variable iReturnCode as integer no-undo.
+        define variable cDataSourceName as character no-undo.
+        define variable cUserName as character no-undo.
+        define variable cPassword as character no-undo.
+        
+        assign cDataSourceName = cast(ConnectionParameters, ODBCConnectionParameters):DataSourceName
+               cUserName = cast(ConnectionParameters, ODBCConnectionParameters):UserName
+               cPassword = cast(ConnectionParameters, ODBCConnectionParameters):Password
+               .
+        
+        run SQLConnect(input  miConnectionHandle,
+                       input  cDataSourceName,  input length(cDataSourceName),
+                       input  cUserName,        input length(cUserName),
+                       input  cPassword,        input length(cPassword),
+                       output iReturnCode).
         SqlCommonLib:ProcessReturnCode(iReturnCode, 'SQLConnect').
     end method.
 
     /** Creates a server object (ie this-object:Server). This is separated
         from the Connect/Disconnect pair of methods so that one server can 
         be connected and disconnected multiple time. */
-	method public void CreateServer():
+    method public void CreateServer():
         miEnvironmentHandle = SqlCommonLib:AllocateHandle(SqlHandleTypeEnum:SQL_HANDLE_ENV, SqlHandleTypeEnum:SQL_NULL_HANDLE:Value).
-
+        
         SetEnvAttribute(SQL_ATTR_ODBC_VERSION, SQL_OV_ODBC3).
         miConnectionHandle = SqlCommonLib:AllocateHandle(SqlHandleTypeEnum:SQL_HANDLE_DBC, miEnvironmentHandle).
-	end method.
-	
-	method private void SetEnvAttribute(input piAttribute as integer,
-	                                    input piValue as integer):
+    end method.
+    
+    method private void SetEnvAttribute(input piAttribute as integer,
+                                        input piValue as integer):
         define variable iReturnCode as integer no-undo.
-        	                                        
+        
         /* for SQLSetEnvAttr integer values, always use 32bit integers. length param is ignored */
         run SQLSetEnvAttr (input  miEnvironmentHandle,
                            input  piAttribute,
@@ -158,51 +159,48 @@ class OpenEdge.Core.ServerConnection.ODBCConnection use-widget-pool implements I
         define variable mValue as memptr no-undo.
         define variable iEnvValue as integer no-undo.
         define variable iValueLength as integer no-undo.
-                                            
-        /* for character parameters, pass pointer */
-        set-size(mValue) = 4.
-        put-string(mValue, 1) = pcValue.
-        assign iEnvValue = get-long(mValue, 1)
-               iValueLength = get-size(mValue).
         
+        /* for character parameters, pass pointer */
+        set-size(mValue) = 8.
+        put-string(mValue, 1) = pcValue.
+        
+        assign iEnvValue    = get-long(mValue, 1)
+               iValueLength = get-size(mValue)
+               .
         run SQLSetEnvAttr (input  miEnvironmentHandle,
                            input  piAttribute,
                            input  iEnvValue,
                            input  iValueLength,
                            output iReturnCode).
-        SqlCommonLib:ProcessReturnCode(iReturnCode,'SQLSetEnvAttr:SQL_ATTR_ODBC_VERSION').
-        
-        finally:
-            set-size(mValue) = 0.
-        end finally.  
+        SqlCommonLib:ProcessReturnCode(iReturnCode, substitute('SQLSetEnvAttr:&1', piAttribute)).
     end method.
     
     /** Destroys the server object (ie this-object:Server). This is separated
         from the Connect/Disconnect pair of methods so that one server can 
         be connected and disconnected multiple time. */
-	method public void DestroyServer():	   
-	    this-object:Disconnect().
-	    release external "{&ODBC-DLL}".
-	end method.
-	
+    method public void DestroyServer():       
+        this-object:Disconnect().
+        release external "{&ODBC-DLL}".
+    end method.
+    
     /** Disconnect from the server, if connected */
-	method public void Disconnect():
-	    define variable iReturnCode as integer no-undo.
-	    
-	    if miConnectionHandle gt 0 then
-	    do:
-    	    run SQLDisconnect (input miConnectionHandle, output iReturnCode).
+    method public void Disconnect():
+        define variable iReturnCode as integer no-undo.
+        
+        if miConnectionHandle gt 0 then
+        do:
+            run SQLDisconnect (input miConnectionHandle, output iReturnCode).
             SqlCommonLib:ProcessReturnCode(iReturnCode, 'SQLDisconnect').
         end.
                 
-	    SqlCommonLib:FreeHandle(input SqlHandleTypeEnum:SQL_HANDLE_DBC, input  miConnectionHandle).
-	    SqlCommonLib:FreeHandle(input SqlHandleTypeEnum:SQL_HANDLE_ENV, input  miEnvironmentHandle).
-	end method.
-	
-	/** Returns a new statement object to a caller. The SqlExecuteDirect object is used
-	    to execute a query against the connection's data source.
-	    
-	    @return SqlExecuteDirect  */
+        SqlCommonLib:FreeHandle(input SqlHandleTypeEnum:SQL_HANDLE_DBC, input  miConnectionHandle).
+        SqlCommonLib:FreeHandle(input SqlHandleTypeEnum:SQL_HANDLE_ENV, input  miEnvironmentHandle).
+    end method.
+    
+    /** Returns a new statement object to a caller. The SqlExecuteDirect object is used
+        to execute a query against the connection's data source.
+        
+        @return SqlExecuteDirect  */
     method public SqlExecuteDirect CreateExecuteStatement():
         return cast(SqlStatementFactory(get-class(OpenEdge.Data.ODBC.SqlExecuteDirect)), SqlExecuteDirect).
     end method.

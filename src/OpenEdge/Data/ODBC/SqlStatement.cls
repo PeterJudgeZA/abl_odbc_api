@@ -1,5 +1,5 @@
 /* ****
-Copyright 2013 Progress Software Corporation
+Copyright 2013, 2018 Progress Software Corporation
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -50,7 +50,6 @@ using OpenEdge.Core.DataTypeEnum.
 class OpenEdge.Data.ODBC.SqlStatement abstract:
     /* various constant values */
     {OpenEdge/Data/ODBC/SqlStatementConstants.i &ACCESS-LEVEL=protected}.
-    
     /* DLL forward declarations */
     {OpenEdge/Data/ODBC/SqlStatementProto.i}
     
@@ -100,7 +99,6 @@ class OpenEdge.Data.ODBC.SqlStatement abstract:
     end method.
     
     method public void Initialize():
-        
     end method.
     
     method public void Destroy():
@@ -136,7 +134,6 @@ class OpenEdge.Data.ODBC.SqlStatement abstract:
         empty temp-table ttStmtCol.
         
         set-size(mColCnt) = 2.
-        
         run SQLNumResultCols (input        this-object:StatementHandle,
                               input-output mColCnt,
                                     output iReturnCode).
@@ -480,7 +477,15 @@ class OpenEdge.Data.ODBC.SqlStatement abstract:
         define variable iPutPos as integer no-undo.
         define variable oReturnCode as SqlReturnCodeEnum no-undo.
         
-        run SQLFetch(input this-object:StatementHandle, output iReturnCode).
+        run SQLFetch(input  this-object:StatementHandle, 
+                     output iReturnCode).
+        if iReturnCode lt 0 then
+             SqlCommonLib:ProcessReturnCode(
+                    SqlReturnCodeEnum:ValueToEnum(iReturnCode), 
+                    'SQLFetch',
+                    SqlHandleTypeEnum:SQL_HANDLE_STMT,
+                    this-object:StatementHandle ).
+        
         lHasNext = (iReturnCode eq SqlReturnCodeEnum:SQL_SUCCESS:Value).
         do while lHasNext:
             oRowReadArgs = new RowReadEventArgs(pcTargetType, poTargetReference).

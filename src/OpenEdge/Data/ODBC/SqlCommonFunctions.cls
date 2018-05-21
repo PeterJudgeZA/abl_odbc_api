@@ -1,5 +1,5 @@
 /* ****
-Copyright 2013 Progress Software Corporation
+Copyright 2013, 2018 Progress Software Corporation
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -33,24 +33,29 @@ using Progress.Json.ObjectModel.JsonObject.
 class OpenEdge.Data.ODBC.SqlCommonFunctions:
     /* DLL forward declarations */
     {OpenEdge/Data/ODBC/SqlCommonFunctionsProto.i}
+    {OpenEdge/Data/ODBC/SqlStatementConstants.i}
     
     method public int64 AllocateHandle(input poHandleType as SqlHandleTypeEnum,
                                        input piParentHandle as int64):
         define variable mHandle as memptr no-undo.
         define variable iReturnCode as integer no-undo.
         
-        set-size(mHandle) = 4.
+        if process-architecture eq 32 then
+            set-size(mHandle) = 8.
+        else
+            set-size(mHandle) = 8.
         
-        run SQLAllocHandle (
-                    input        poHandleType:Value,
-                    input        piParentHandle,
-                    input-output mHandle,
-                          output iReturnCode).
-        ProcessReturnCode(
-            SqlReturnCodeEnum:ValueToEnum(iReturnCode), 
-            substitute('SQLAllocHandle:&1', poHandleType:Name)).
+        run SQLAllocHandle (input        poHandleType:Value,
+                            input        piParentHandle,
+                            input-output mHandle,
+                                  output iReturnCode).
+        ProcessReturnCode(SqlReturnCodeEnum:ValueToEnum(iReturnCode),
+                          substitute('SQLAllocHandle:&1', poHandleType:Name)).
         
-        return get-long(mHandle, 1).
+        if process-architecture eq 32 then
+            return get-long(mHandle, 1).
+        else
+            return get-int64(mHandle, 1).
         
         finally:
             set-size(mHandle) = 0.
@@ -64,31 +69,22 @@ class OpenEdge.Data.ODBC.SqlCommonFunctions:
         if not piHandle gt 0 then
             return.
         
-        run SQLFreeHandle(
-               input  poHandleType:Value,
-               input  piHandle,
-               output iReturnCode).
-        ProcessReturnCode(
-            SqlReturnCodeEnum:ValueToEnum(iReturnCode),
-            substitute('SQLFreeHandle:&1', poHandleType:Name)).
+        run SQLFreeHandle(input  poHandleType:Value,
+                          input  piHandle,
+                          output iReturnCode).
+        ProcessReturnCode(SqlReturnCodeEnum:ValueToEnum(iReturnCode), 
+                          substitute('SQLFreeHandle:&1', poHandleType:Name)).
     end method.
         
     method public void ProcessReturnCode(input poReturnCode as SqlReturnCodeEnum,
                                          input pcExternalProcedure as character):
-        ProcessReturnCode(
-                poReturnCode, 
-                pcExternalProcedure, 
-                ?, 
-                ?).
+        ProcessReturnCode(poReturnCode, pcExternalProcedure, ?, ?).
     end method.
 
     method public void ProcessReturnCode(input piReturnCode as integer,
                                          input pcExternalProcedure as character):
-        ProcessReturnCode(
-                SqlReturnCodeEnum:ValueToEnum(piReturnCode), 
-                pcExternalProcedure, 
-                ?, 
-                ?).
+        ProcessReturnCode(SqlReturnCodeEnum:ValueToEnum(piReturnCode),
+                          pcExternalProcedure, ?, ?).
     end method.
     
     method public JsonArray ProcessReturnCode(input poReturnCode as SqlReturnCodeEnum,
@@ -135,7 +131,7 @@ class OpenEdge.Data.ODBC.SqlCommonFunctions:
         
         set-size(mSqlState) = 6.
         set-size(mNativeError) = 4.
-        set-size(mMessageText) = 512.    /* SQL_MAX_MESSAGE_LENGTH */
+        set-size(mMessageText) = SQL_MAX_MESSAGE_LENGTH.
         set-size(mTextLength) = 2.
         
         assign oReturnCode = SqlReturnCodeEnum:SQL_SUCCESS
@@ -143,17 +139,16 @@ class OpenEdge.Data.ODBC.SqlCommonFunctions:
                oDiagRec = new JsonArray().
         
         do while oReturnCode ne SqlReturnCodeEnum:SQL_NO_DATA:
-            run SQLGetDiagRec(
-                   input        poHandleType:Value,
-                   input        piHandle,
-                   input        iRecordNum,
-                   input-output mSqlState,
-                   input-output mNativeError,
-                   input-output mMessageText,
-                   input        get-size(mMessageText),
-                   input-output mTextLength,
-                         output iReturnCode).
-                                     
+            run SQLGetDiagRec(input        poHandleType:Value,
+                              input        piHandle,
+                              input        iRecordNum,
+                              input-output mSqlState,
+                              input-output mNativeError,
+                              input-output mMessageText,
+                              input        get-size(mMessageText),
+                              input-output mTextLength,
+                                    output iReturnCode).
+           
             oDiagFld = new JsonObject().
             oDiagRec:add(oDiagFld).
             oDiagFld:add('SQLState', get-string(mSqlState, 1)).

@@ -29,7 +29,7 @@ using Progress.Json.ObjectModel.JsonObject.
 using Progress.Json.ObjectModel.JsonArray.
 
 /* ***************************  Main Block  *************************** */
-define variable oD2CServer as ODBCConnection no-undo.
+define variable odbcConn as ODBCConnection no-undo.
 define variable cStmt as character no-undo.
 define variable oResultSet as JsonObject no-undo.
 define variable hResultSet as handle no-undo.
@@ -44,21 +44,28 @@ define variable oConfig as JsonObject no-undo.
 */
 
 oConfig = cast(new ObjectModelParser():ParseFile('conf/d2c.json'), JsonObject).
-oD2CServer = new ODBCConnection(oConfig).
-oD2CServer:Initialize().
+odbcConn = new ODBCConnection(oConfig).
+odbcConn:Initialize().
+
+/*
+oResultSet = odbcConn:GetTables(true).
+oResultSet:WriteFile(session:temp-dir + 'conf_schema.json', true).
+*/
+
 
 /* Execute a SQL SELECT statement and get the result set as an ABL temp-table */
-cStmt = " select USERNAME, LASTNAME, EMAIL from USER ".
-oD2CServer:ExecuteStatement(cStmt, output table-handle hResultSet).
+cStmt = " select id, speaker, name from PUB.talk ".
+odbcConn:ExecuteStatement(cStmt, output table-handle hResultSet).
 /* just dump the output to disk. Obviously you would do more with this data in the real world */
 hResultSet:write-json('file', session:temp-dir + 'resultset-table.json', true).
 
-/* Execute a SQL SELECT statement and get the result set in JSON form */
+/* Execute a SQL SELECT statement and get the result set in JSON form 
 cStmt = "select ACCOUNTNUMBER, SYS_NAME, ANNUALREVENUE, NUMBEROFEMPLOYEES, DESCRIPTION, SLAEXPIRATIONDATE from ACCOUNT ".
-oD2CServer:ExecuteStatement(cStmt, output oResultSet).
+odbcConn:ExecuteStatement(cStmt, output oResultSet).
 /* just dump the output to disk. Obviously you would do more with this data in the real world */
 if valid-object(oResultSet) then
     oResultSet:WriteFile(session:temp-dir + 'resultset-json.json', true).
+*/
 
 /* Deal with any errors */
 catch e as OpenEdge.Data.ODBC.ODBCCallError:

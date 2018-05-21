@@ -44,4 +44,4 @@ define {&STATIC} {&ACCESS-LEVEL} property SQL_NO_TOTAL    as integer initial -4 
 
 /* SIZES */
 define {&STATIC} {&ACCESS-LEVEL} property SQL_MAX_COLUMN_NAME_LEN as integer initial 30 no-undo get.
-  
+define {&STATIC} {&ACCESS-LEVEL} property SQL_MAX_MESSAGE_LENGTH  as integer initial 512 no-undo get.

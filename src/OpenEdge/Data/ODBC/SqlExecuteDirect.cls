@@ -28,18 +28,19 @@ using OpenEdge.Core.ServerConnection.ODBCConnection.
 using OpenEdge.Data.ODBC.SqlStatement.
 using Progress.Json.ObjectModel.JsonArray.
 using Progress.Json.ObjectModel.JsonObject.
+using OpenEdge.Data.ODBC.SqlHandleTypeEnum.
+using OpenEdge.Data.ODBC.SqlReturnCodeEnum.
 
 class OpenEdge.Data.ODBC.SqlExecuteDirect inherits SqlStatement: 
-    
     /* DLL forward declarations */
     {OpenEdge/Data/ODBC/SqlStatementProto.i}
     
-	constructor public SqlExecuteDirect ( input piStmt as int64, input poConnection as ODBCConnection):
-		super (input piStmt, input poConnection).
-		
-		/* do not set the StatementId here; it's dependent on the statement being executed. */
-	end constructor.
-	
+    constructor public SqlExecuteDirect ( input piStmt as int64, input poConnection as ODBCConnection):
+        super (input piStmt, input poConnection).
+        
+        /* do not set the StatementId here; it's dependent on the statement being executed. */
+    end constructor.
+    
     method public void Execute(input  pcStatement as character,
                                output poResultSet as JsonObject):
         define variable iReturnCode as integer no-undo.
@@ -71,7 +72,7 @@ class OpenEdge.Data.ODBC.SqlExecuteDirect inherits SqlStatement:
         
         LoadResultSet(oArray).
     end method.
-    	
+        
     method public void Execute(input  pcStatement as character,
                                output table-handle phResultSet):
         define variable iReturnCode as integer no-undo.
@@ -88,9 +89,10 @@ class OpenEdge.Data.ODBC.SqlExecuteDirect inherits SqlStatement:
                           input  pcStatement,
                           input  length(pcStatement),
                           output iReturnCode).                
-        SqlCommonLib:ProcessReturnCode(
-                        iReturnCode,
-                        'SQLExecDirect').
+        SqlCommonLib:ProcessReturnCode(SqlReturnCodeEnum:ValueToEnum(iReturnCode),
+                                       'SQLExecDirect', 
+                                       SqlHandleTypeEnum:SQL_HANDLE_STMT, 
+                                       this-object:StatementHandle).
         
         /* 2. create schema */        
         MapColumns().
@@ -133,5 +135,5 @@ class OpenEdge.Data.ODBC.SqlExecuteDirect inherits SqlStatement:
         /* 3. Add data */
         LoadResultSet(phResultSet).
     end method.
-        	
+    
 end class.
