@@ -43,8 +43,12 @@ class OpenEdge.Data.ODBC.SqlGetColumns inherits SqlStatement:
         
         /* doc via  http://msdn.microsoft.com/en-us/library/windows/desktop/ms711683%28v=vs.85%29.aspx 
         Column name                 Col No  Data type           Comments        
-        TABLE_CAT (ODBC 1.0)        1       Varchar             Catalog name; NULL if not applicable to the data source. If a driver supports catalogs for some tables but not for others, such as when the driver retrieves data from different DBMSs, it returns an empty string ("") for those tables that do not have catalogs.
-        TABLE_SCHEM (ODBC 1.0)      2       Varchar             Schema name; NULL if not applicable to the data source. If a driver supports schemas for some tables but not for others, such as when the driver retrieves data from different DBMSs, it returns an empty string ("") for those tables that do not have schemas.
+        TABLE_CAT (ODBC 1.0)        1       Varchar             Catalog name; NULL if not applicable to the data source. If a driver supports catalogs for 
+                                                                some tables but not for others, such as when the driver retrieves data from different DBMSs, 
+                                                                it returns an empty string ("") for those tables that do not have catalogs.
+        TABLE_SCHEM (ODBC 1.0)      2       Varchar             Schema name; NULL if not applicable to the data source. If a driver supports schemas 
+                                                                for some tables but not for others, such as when the driver retrieves data from different 
+                                                                DBMSs, it returns an empty string ("") for those tables that do not have schemas.
         TABLE_NAME (ODBC 1.0)       3       Varchar not NULL    Table name.
         COLUMN_NAME (ODBC 1.0)      4       Varchar not NULL    Column name. The driver returns an empty string for a column that does not have a name.
         DATA_TYPE (ODBC 1.0)        5       Smallint not NULL   SQL data type. This can be an ODBC SQL data type or a driver-specific 

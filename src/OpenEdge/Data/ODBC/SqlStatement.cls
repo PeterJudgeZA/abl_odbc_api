@@ -1,5 +1,5 @@
 /* ****
-Copyright 2013, 2018 Progress Software Corporation
+Copyright 2013, 2018,2019 Progress Software Corporation
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -45,7 +45,6 @@ using Progress.Lang.Error.
 using Progress.Lang.Object.
 using OpenEdge.Core.EnumMember.
 using OpenEdge.Core.DataTypeEnum.
-
 
 class OpenEdge.Data.ODBC.SqlStatement abstract:
     /* various constant values */
@@ -371,6 +370,26 @@ class OpenEdge.Data.ODBC.SqlStatement abstract:
         end.
     end method.
 
+    method protected handle GetFieldHandle(input pBuffer as handle,
+                                        input pFieldName as character):
+        define variable hField as handle no-undo.
+        define variable loop as integer no-undo.
+        define variable cnt as integer no-undo.
+        
+        assign hField = pBuffer:buffer-field(pFieldName) no-error.
+        if valid-handle(hField) then
+            return hField.
+            
+        assign cnt = pBuffer:num-fields.
+        do loop = 1 to cnt while not valid-handle(hField):
+            assign hField = pBuffer:buffer-field(loop).
+            if not hField:serialize-name eq pFieldName then
+                assign hField = ?. 
+        end.
+        
+        return hField.
+    end method.
+    
     method protected void FieldReadTableEventHandler(input poSender as Object,
                                                      input poEventArgs as FieldReadEventArgs):
         define variable oParent as WidgetHandle no-undo.
@@ -383,7 +402,7 @@ class OpenEdge.Data.ODBC.SqlStatement abstract:
         oParent = cast(poEventArgs:ParentReference, WidgetHandle).
         Assert:NotNull(oParent:Value, 'Buffer handle').
         
-        hField = oParent:Value:buffer-field(poEventArgs:FieldReference) no-error.
+        hField = GetFieldHandle(oParent:Value, poEventArgs:FieldReference).
         Assert:NotNull(hField, substitute('Field &1 in buffer &2', poEventArgs:FieldReference, oParent:Value:name)).
 
         if poEventArgs:IsNullValue then

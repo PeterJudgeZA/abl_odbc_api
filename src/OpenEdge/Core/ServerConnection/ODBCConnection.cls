@@ -1,5 +1,5 @@
 /* ****
-Copyright 2013, 2018 Progress Software Corporation
+Copyright 2013, 2018-2019 Progress Software Corporation
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -40,6 +40,7 @@ using Progress.Json.ObjectModel.JsonArray.
 using Progress.Json.ObjectModel.JsonObject.
 using Progress.Lang.Object.
 using Progress.Lang.ParameterList.
+using OpenEdge.Data.ODBC.SqlReturnCodeEnum.
 
 class OpenEdge.Core.ServerConnection.ODBCConnection use-widget-pool implements IServerConnection:
     /* DLL forward declarations */
@@ -121,15 +122,17 @@ class OpenEdge.Core.ServerConnection.ODBCConnection use-widget-pool implements I
                cUserName = cast(ConnectionParameters, ODBCConnectionParameters):UserName
                cPassword = cast(ConnectionParameters, ODBCConnectionParameters):Password
                .
-        
         run SQLConnect(input  miConnectionHandle,
                        input  cDataSourceName,  input length(cDataSourceName),
                        input  cUserName,        input length(cUserName),
                        input  cPassword,        input length(cPassword),
                        output iReturnCode).
-        SqlCommonLib:ProcessReturnCode(iReturnCode, 'SQLConnect').
+        SqlCommonLib:ProcessReturnCode(SqlReturnCodeEnum:ValueToEnum(iReturnCode),
+                                       'SQLConnect',
+                                       SqlHandleTypeEnum:SQL_HANDLE_DBC,
+                                       miConnectionHandle).
     end method.
-
+    
     /** Creates a server object (ie this-object:Server). This is separated
         from the Connect/Disconnect pair of methods so that one server can 
         be connected and disconnected multiple time. */
